@@ -1,7 +1,7 @@
 const db = require('../connection');
 
-const getQuizzes = () => {
-  return db.query('SELECT * FROM quizzes ORDER BY id DESC LIMIT 10;')
+const get = () => {
+  return db.query('SELECT * FROM users;')
     .then(data => {
       return data.rows;
     });
