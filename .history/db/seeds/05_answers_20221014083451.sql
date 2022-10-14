@@ -1,7 +1,7 @@
 /* Answers for Quiz 1 */
 INSERT INTO answers (id, question_id, answer) VALUES (1, 1, 'titus andronicus');
 INSERT INTO answers (id, question_id, answer) VALUES (2, 2, 'rosaline');
-INSERT INTO answers (id, question_id, answer) VALUES (3, 3, 'macbeth');
+INSERT INTO questions (id, question_id, answer) VALUES (3, 3, 'macbeth');
 
 /* Answers for Quiz 2 */
 INSERT INTO answers (id, question_id, answer) VALUES (4, 4, 'mars');

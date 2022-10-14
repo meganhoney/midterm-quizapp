@@ -6,18 +6,19 @@
  */
 
 const express = require('express');
-const router = express.Router();
+const router  = express.Router();
 const quiz = require('./../db/queries/quiz');
 
 router.get('/', (req, res) => {
 
   quiz.getQuizzes()
-    .then(data => res.json(data))
-    .catch((err) => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+  .then(data => res.json(data))
+  .catch((err => {
+    res
+    .status(500)
+    .json({ error: err.message });
+  }
+  );
 });
 
 module.exports = router;
