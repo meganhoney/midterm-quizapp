@@ -11,9 +11,7 @@ const quiz = require('./../db/queries/quiz');
 
 router.get('/', (req, res) => {
 
-  quiz.getQuizzes()
-  .then(data => res.send(data))
-  .catch(err => res.send(err));
+  quiz.getQuizzes().
 });
 
 module.exports = router;

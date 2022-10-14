@@ -8,4 +8,4 @@ const getQuizzes = () => {
     });
 };
 
-module.exports = { getQuizzes };
+module.exports = { getUsers };

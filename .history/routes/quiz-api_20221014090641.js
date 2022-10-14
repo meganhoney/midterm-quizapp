@@ -7,13 +7,10 @@
 
 const express = require('express');
 const router  = express.Router();
-const quiz = require('./../db/queries/quiz');
+const quiz = require('./')
 
 router.get('/', (req, res) => {
-
-  quiz.getQuizzes()
-  .then(data => res.send(data))
-  .catch(err => res.send(err));
+  res.render('users');
 });
 
 module.exports = router;
