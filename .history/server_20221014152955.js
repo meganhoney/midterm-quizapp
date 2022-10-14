@@ -32,7 +32,7 @@ const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const quizAPIRoutes = require('./routes/quiz-api');
 const usersRoutes = require('./routes/users');
-const rootRoute = require('./routes/root');
+const rootRoute = require('./root');
 
 
 // Mount all resource routes
