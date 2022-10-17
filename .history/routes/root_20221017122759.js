@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  res.render('take_quiz');
+  res.render('index');
 });
 
 module.exports = router;
