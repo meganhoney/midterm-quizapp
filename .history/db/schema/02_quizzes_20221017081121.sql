@@ -9,3 +9,7 @@ CREATE TABLE quizzes (
   number_of_attempts BIGINT NOT NULL DEFAULT 0
 );
 
+SELECT * FROM quizzes
+JOIN questions ON quizzes.id = questions.quiz_id
+JOIN answers ON quizzes.id = answers.quiz_id
+WHERE user_id = 1

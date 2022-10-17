@@ -23,10 +23,10 @@ FROM
   JOIN options ON questions.id = options.question_id
   JOIN answers ON questions.id = answers.question_id
 WHERE
-  quizzes.id = 1;
+  user_id = 1;
 
   `)
-    .then(data => data.rows);
+  .then(data => data.rows);
 }
 
-module.exports = { getQuizzes, getQuizzesById };
+module.exports = { getQuizzes };

@@ -29,4 +29,4 @@ WHERE
     .then(data => data.rows);
 }
 
-module.exports = { getQuizzes, getQuizzesById };
+module.exports = { getQuizzes,get };
