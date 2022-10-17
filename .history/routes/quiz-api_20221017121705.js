@@ -34,10 +34,7 @@ router.get('/:id', (req, res) => {
       return quiz.getQuestionsByQuizzesId(quizId);
     })
     .then((questions) => {
-      return quiz.attachOptions(questions);
-    })
-    .then((questions) => {
-      return quiz.attachAnswers(questions);
+      return attachOptions(questions);
     })
     .then((questions) => {
       quizObj.questions = questions;

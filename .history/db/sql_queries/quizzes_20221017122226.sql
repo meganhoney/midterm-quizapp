@@ -39,7 +39,7 @@ WHERE
 SELECT
   *
 FROM
-  answers
+  options
 WHERE
   question_id = 1;
 

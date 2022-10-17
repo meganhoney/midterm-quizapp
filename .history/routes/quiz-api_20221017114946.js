@@ -30,16 +30,11 @@ router.get('/:id', (req, res) => {
   let quizObj;
   quiz.getQuizzesById(quizId)
     .then((quizzes) => {
-      quizObj = quizzes[0];
+      quizObj = data[0];
       return quiz.getQuestionsByQuizzesId(quizId);
     })
     .then((questions) => {
-      return quiz.attachOptions(questions);
-    })
-    .then((questions) => {
-      return quiz.attachAnswers(questions);
-    })
-    .then((questions) => {
+     // console.log(data2);
       quizObj.questions = questions;
       res.json(quizObj);
     })
@@ -50,7 +45,14 @@ router.get('/:id', (req, res) => {
 
 });
 
+const attachOptions = async (questions) => {
+  const results = await Promise.all(questions.map(async (question) => {
+    const result = await doSomethingAsync(user);
+    return 'Hello, ' + result;
+  }));
 
+  return results;
+}
 
 
 module.exports = router;

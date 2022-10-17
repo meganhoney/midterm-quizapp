@@ -50,23 +50,9 @@ const getOptionsByQuestionsId = (questionId) => {
     .then(data => data.rows);
 }
 
-const getAnswersByQuestionsId = (questionId) => {
-  return db.query(`
-  SELECT
-  *
-  FROM
-    answers
-  WHERE
-    question_id = $1;
-
-
-  `, [questionId])
-    .then(data => data.rows);
-}
-
 const attachOptions = async (questions) => {
   const newQuestions = await Promise.all(questions.map(async (question) => {
-    question.options = await getOptionsByQuestionsId(question.id);
+    question.options = await quiz.getOptionsByQuestionsId(question.id);
     return question
   }));
 
@@ -75,7 +61,7 @@ const attachOptions = async (questions) => {
 
 const attachAnswers = async (questions) => {
   const newQuestions = await Promise.all(questions.map(async (question) => {
-    question.answers = await getAnswersByQuestionsId(question.id);
+    question.options = await quiz.getAnswersByQuestionsId(question.id);
     return question
   }));
 
@@ -84,12 +70,4 @@ const attachAnswers = async (questions) => {
 
 
 
-module.exports = {
-  getQuizzes,
-  getQuizzesById,
-  getQuestionsByQuizzesId,
-  getOptionsByQuestionsId,
-  getAnswersByQuestionsId,
-  attachOptions,
-  attachAnswers
-};
+module.exports = { getQuizzes, getQuizzesById, getQuestionsByQuizzesId, getOptionsByQuestionsId, attachOptions, attachAnswers };

@@ -32,14 +32,6 @@ WHERE
 SELECT
   *
 FROM
-  options
+  questions
 WHERE
-  question_id = 1;
-
-SELECT
-  *
-FROM
-  answers
-WHERE
-  question_id = 1;
-
+  quiz_id = 1;

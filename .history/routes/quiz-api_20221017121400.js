@@ -34,13 +34,11 @@ router.get('/:id', (req, res) => {
       return quiz.getQuestionsByQuizzesId(quizId);
     })
     .then((questions) => {
-      return quiz.attachOptions(questions);
-    })
-    .then((questions) => {
-      return quiz.attachAnswers(questions);
+      return attachOptions(questions);
     })
     .then((questions) => {
       quizObj.questions = questions;
+      //console.log(quizObj)
       res.json(quizObj);
     })
     .catch((err) => {
@@ -50,7 +48,15 @@ router.get('/:id', (req, res) => {
 
 });
 
+const attachOptions = async (questions) => {
+  const newQuestions = await Promise.all(questions.map(async (question) => {
+    question.options = await quiz.getOptionsByQuestionsId(question.id);
+    //console.log(question);
+    return question
+  }));
 
+  return newQuestions;
+}
 
 
 module.exports = router;

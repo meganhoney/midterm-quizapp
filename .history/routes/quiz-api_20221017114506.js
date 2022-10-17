@@ -29,18 +29,13 @@ router.get('/:id', (req, res) => {
   const quizId = req.params.id;
   let quizObj;
   quiz.getQuizzesById(quizId)
-    .then((quizzes) => {
-      quizObj = quizzes[0];
+    .then((data) => {
+      quizObj = data[0];
       return quiz.getQuestionsByQuizzesId(quizId);
     })
-    .then((questions) => {
-      return quiz.attachOptions(questions);
-    })
-    .then((questions) => {
-      return quiz.attachAnswers(questions);
-    })
-    .then((questions) => {
-      quizObj.questions = questions;
+    .then((data2) => {
+      console.log(data2);
+      quizObj.questions = data2;
       res.json(quizObj);
     })
     .catch((err) => {
@@ -50,7 +45,14 @@ router.get('/:id', (req, res) => {
 
 });
 
+const attachOptions =(data)=>{
+  const results = await Promise.all(users.map(async (user) => {
+    const result = await doSomethingAsync(user);
+    return 'Hello, ' + result;
+  }));
 
+  return results;
+}
 
 
 module.exports = router;

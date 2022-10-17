@@ -75,7 +75,7 @@ const attachOptions = async (questions) => {
 
 const attachAnswers = async (questions) => {
   const newQuestions = await Promise.all(questions.map(async (question) => {
-    question.answers = await getAnswersByQuestionsId(question.id);
+    question.options = await getAnswersByQuestionsId(question.id);
     return question
   }));
 
