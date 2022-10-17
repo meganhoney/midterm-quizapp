@@ -29,12 +29,11 @@ router.get('/:id', (req, res) => {
   const quizId = req.params.id;
   let quizObj;
   quiz.getQuizzesById(quizId)
-    .then((data) => {
+    .then(data => {
       quizObj = data[0];
-      return quiz.getQuestionsByQuizzesId(quizId);
+      quiz.getQuestionsByQuizzesId(quizId);
     })
-    .then((data2) => {
-      console.log(data2);
+    .then(data2 =>{
       quizObj.questions = data2;
       res.json(quizObj);
     })

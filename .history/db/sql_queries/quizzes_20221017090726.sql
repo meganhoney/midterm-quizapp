@@ -16,15 +16,9 @@ LIMIT
  Take Quiz GET
  */
 SELECT
-  *
+  quizzes.title AS title,
+  quizzes.topic AS topic,
 FROM
   quizzes
 WHERE
-  id = 1;
-
-SELECT
-  *
-FROM
-  questions
-WHERE
-  quiz_id = 1;
+  quizzes_id = 1;

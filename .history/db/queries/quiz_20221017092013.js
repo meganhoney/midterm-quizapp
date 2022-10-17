@@ -15,26 +15,26 @@ const getQuizzesById = (id) => {
   FROM
     quizzes
   WHERE
-    id = $1;
+    id = ?;
 
 
   `, [id])
     .then(data => data.rows);
 }
 
-const getQuestionsByQuizzesId = (quizId) => {
+const getQuestionsByQuizzesId = (id) => {
   return db.query(`
   SELECT
   *
   FROM
     questions
   WHERE
-    quiz_id = $1;
+    quizzes_id = ?;
 
 
-  `, [quizId])
+  `,)
     .then(data => data.rows);
 }
 
 
-module.exports = { getQuizzes, getQuizzesById, getQuestionsByQuizzesId };
+module.exports = { getQuizzes, getQuizzesById };

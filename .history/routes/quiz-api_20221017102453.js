@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
   quiz.getQuizzesById(quizId)
     .then((data) => {
       quizObj = data[0];
-      return quiz.getQuestionsByQuizzesId(quizId);
+      quiz.getQuestionsByQuizzesId(quizId);
     })
     .then((data2) => {
       console.log(data2);

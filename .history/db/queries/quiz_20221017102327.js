@@ -32,7 +32,7 @@ const getQuestionsByQuizzesId = (quizId) => {
     quiz_id = $1;
 
 
-  `, [quizId])
+  `, [id])
     .then(data => data.rows);
 }
 

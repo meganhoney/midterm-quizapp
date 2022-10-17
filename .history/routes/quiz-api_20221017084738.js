@@ -20,30 +20,18 @@ router.get('/', (req, res) => {
     });
 });
 
-/*
-@param id -> Quiz id to retrieve
-*/
-router.get('/:id', (req, res) => {
-  //will add check for user being logged in later
-
+router.get('/:id',(req,res)=>{
+  const userId = req.session.userId;
   const quizId = req.params.id;
-  let quizObj;
+  if(!userId) {
+    res.status(401)
+    .send('You need to be login');
+  }
+
   quiz.getQuizzesById(quizId)
-    .then((data) => {
-      quizObj = data[0];
-      return quiz.getQuestionsByQuizzesId(quizId);
-    })
-    .then((data2) => {
-      console.log(data2);
-      quizObj.questions = data2;
-      res.json(quizObj);
-    })
-    .catch((err) => {
-      res.status(500)
-        .json({ error: err.message });
-    });
+  .then(data => res.json(data))
+  .catch(err)
 
 });
-
 
 module.exports = router;

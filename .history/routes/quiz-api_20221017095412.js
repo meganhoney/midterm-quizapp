@@ -27,16 +27,10 @@ router.get('/:id', (req, res) => {
   //will add check for user being logged in later
 
   const quizId = req.params.id;
-  let quizObj;
   quiz.getQuizzesById(quizId)
-    .then((data) => {
-      quizObj = data[0];
-      return quiz.getQuestionsByQuizzesId(quizId);
-    })
-    .then((data2) => {
-      console.log(data2);
-      quizObj.questions = data2;
-      res.json(quizObj);
+    .then(data => {
+      const newData = attachQuestions(data);
+      return res.json(newData)
     })
     .catch((err) => {
       res.status(500)
@@ -45,5 +39,15 @@ router.get('/:id', (req, res) => {
 
 });
 
+const attachQuestions = (quizObj) => {
+  const newQuizObj = quizObj;
+  const questions=[];
+  for (const each of newQuizObj) {
+    quiz.getQuestionsByQuizzesId(each.id)
+      .then(data => console.log(data));
+  }
+  //console.log(newQuizObj);
+  return newQuizObj;
+}
 
 module.exports = router;

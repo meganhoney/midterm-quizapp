@@ -22,7 +22,7 @@ const getQuizzesById = (id) => {
     .then(data => data.rows);
 }
 
-const getQuestionsByQuizzesId = (quizId) => {
+const getQuestionsByQuizzesId = (quizid) => {
   return db.query(`
   SELECT
   *
@@ -32,7 +32,7 @@ const getQuestionsByQuizzesId = (quizId) => {
     quiz_id = $1;
 
 
-  `, [quizId])
+  `, [id])
     .then(data => data.rows);
 }
 

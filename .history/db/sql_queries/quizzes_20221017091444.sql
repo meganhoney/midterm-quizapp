@@ -27,4 +27,4 @@ SELECT
 FROM
   questions
 WHERE
-  quiz_id = 1;
+  quizzes_id = 1;
