@@ -16,8 +16,6 @@ router.get('/:id', (req, res) => {
   res.render('take_quiz');
 });
 
-router.get('/my_quizzes/new',(req,res)=>{
-  res.render('new_quiz');
-})
+route.get()
 
 module.exports = router;

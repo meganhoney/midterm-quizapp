@@ -16,7 +16,8 @@ router.get('/:id', (req, res) => {
   res.render('take_quiz');
 });
 
-router.get('/my_quizzes/new',(req,res)=>{
+route.get('/my_quizzes/new',(req,res)=>{
+  console.log('im here')
   res.render('new_quiz');
 })
 
