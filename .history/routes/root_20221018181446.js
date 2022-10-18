@@ -6,7 +6,7 @@
  */
 
 const express = require('express');
-const router = express.Router();
+const router  = express.Router();
 
 router.get('/', (req, res) => {
   res.render('index');
@@ -16,13 +16,13 @@ router.get('/:id', (req, res) => {
   res.render('take_quiz');
 });
 
-router.get('/my_quizzes/new', (req, res) => {
+router.get('/my_quizzes/new',(req,res)=>{
   res.render('new_quiz');
 })
 
-router.get('/user/:id', (req, res) => {
+router.get('/user/:id',(req,res)=>{
   const userId = req.params.id;
-  req.session.userID = userId;
+  req.session.userID = user.id;
   res.redirect("/");
 })
 
