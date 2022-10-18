@@ -60,6 +60,7 @@ $(document).ready(function() {
     })
     .then((response) => {
       displayQuizTitle(response);
+      displayQuizQuestions(response);
       displayQuizOptions(response);
     })
     .catch((err) => {
@@ -83,6 +84,20 @@ $(document).ready(function() {
   }
 
   // Create and display questions for quiz
+  const displayQuizQuestions = function(quiz) {
+    const $quizQuestions = quiz.questions;
+    for(let q of $quizQuestions) {
+      let $quizQuestion = `
+        <article id="question${q.id}">
+        <p>${q.question}</p>
+        </article>
+      `;
+      const $quizQuestionText = $("#quiz-questions");
+      $($quizQuestion).appendTo($quizQuestionText);
+    }
+  }
+
+  // Create and display options (possible answers) for quiz
   const createQuizOptions = function(quiz) {
     const $multipleChoice = `
     <div class="form-check">
@@ -115,7 +130,7 @@ $(document).ready(function() {
   }
 
   const displayQuizOptions = function(quiz) {
-    const $quizQuestion = $("#quiz-questions");
-    $(createQuizOptions(quiz)).prependTo($quizQuestion);
+    const $question = $("#question1");
+    $(createQuizOptions(quiz)).appendTo($question);
   }
 });
