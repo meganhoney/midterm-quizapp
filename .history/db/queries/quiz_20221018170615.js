@@ -108,6 +108,7 @@ const postAnswers = (data) => {
   for (const each of data) {
     for (let x = 0; x < each.answers.length; x++) {
       query += `($${counter + 1},$${counter + 2}),\n`;
+      console.log("x", x, 'query\n', query)
       params.push(each.questionId, each.answers[x]);
       counter += 2;
     }
@@ -117,6 +118,7 @@ const postAnswers = (data) => {
 
   return db.query(query, params)
     .then(data => {
+      console.log("saved")
       return data.rows
     });
 };

@@ -117,6 +117,7 @@ const postAnswers = (data) => {
 
   return db.query(query, params)
     .then(data => {
+      console.log("saved")
       return data.rows
     });
 };

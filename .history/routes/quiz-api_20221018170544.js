@@ -44,6 +44,7 @@ const createOptionsData = (questionsArr, quizObj) => {
     optionObj.options = !quizObj["options" + x] ? [] : quizObj["options" + x];
     optionsArr.push(optionObj);
   }
+  
   return optionsArr;
 }
 

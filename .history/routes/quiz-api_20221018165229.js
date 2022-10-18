@@ -41,7 +41,7 @@ const createOptionsData = (questionsArr, quizObj) => {
   for (let x = 0; x < questionsArr.length; x++) {
     const optionObj = {};
     optionObj.questionId = questionsArr[x].id;
-    optionObj.options = !quizObj["options" + x] ? [] : quizObj["options" + x];
+    optionObj.options = quizObj["options" + x];
     optionsArr.push(optionObj);
   }
   return optionsArr;
@@ -63,10 +63,13 @@ router.post('/', (req, res) => {
   let saveQuestions;
   let returnData;
 
+  //console.log(quiz)
   quiz.postQuizzes(quizData)
     .then(data => {
+      console.log(data);
       returnData = data;
       const questionsArr = createQuestionsData(data.id, quizData.questions, quizData.questions_type);
+      console.log("questionsArr", questionsArr);
       return quiz.postQuestions(questionsArr);
     })
     .then(data => {

@@ -72,6 +72,7 @@ router.post('/', (req, res) => {
     .then(data => {
       saveQuestions = data;
       const optionsData = createOptionsData(data, quizData);
+      consolelog()
       return quiz.postOptions(optionsData);
     })
     .then(() => {

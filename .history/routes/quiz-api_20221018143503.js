@@ -41,7 +41,7 @@ const createOptionsData = (questionsArr, quizObj) => {
   for (let x = 0; x < questionsArr.length; x++) {
     const optionObj = {};
     optionObj.questionId = questionsArr[x].id;
-    optionObj.options = !quizObj["options" + x] ? [] : quizObj["options" + x];
+    optionObj.options = quizObj["options" + x];
     optionsArr.push(optionObj);
   }
   return optionsArr;
@@ -61,25 +61,26 @@ const createAnswersData = (questionsArr, quizObj) => {
 router.post('/', (req, res) => {
   const quizData = req.body;
   let saveQuestions;
-  let returnData;
 
+  //console.log(quiz)
   quiz.postQuizzes(quizData)
     .then(data => {
-      returnData = data;
+      console.log(data);
       const questionsArr = createQuestionsData(data.id, quizData.questions, quizData.questions_type);
+      console.log("questionsArr", questionsArr);
       return quiz.postQuestions(questionsArr);
     })
     .then(data => {
       saveQuestions = data;
+      console.log("saved questions\n", data)
       const optionsData = createOptionsData(data, quizData);
+      console.log("options data\n", optionsData);
       return quiz.postOptions(optionsData);
     })
     .then(() => {
-      const answersData = createAnswersData(saveQuestions, quizData);
-      return quiz.postAnswers(answersData);
-    })
-    .then(() => {
-      return res.json(returnData);
+      const optionsData = createOptionsData(savedQuestions, quizData);
+      console.log("options data\n", optionsData);
+      res.send("saved")
     })
     .catch(err => res.status(500).json({ error: err.message }));
 

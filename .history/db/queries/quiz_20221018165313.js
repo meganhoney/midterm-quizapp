@@ -55,6 +55,8 @@ const postQuestions = (data) => {
     params.push(data[x].quizId, data[x].question, data[x].questionType);
   }
   query += '\nRETURNING *;';
+  console.log("query\n", query);
+  console.log("params\n", params);
 
   return db.query(query, params)
     .then(data => data.rows);
@@ -77,15 +79,19 @@ const postOptions = (data) => {
   for (const each of data) {
     for (let x = 0; x < each.options.length; x++) {
       query += `($${counter + 1},$${counter + 2}),\n`;
+      console.log("x", x, 'query\n', query)
       params.push(each.questionId, each.options[x]);
       counter += 2;
     }
   }
   query = query.slice(0, -2);
   query += '\nRETURNING *;';
+  console.log("query\n", query);
+  console.log("params\n", params);
 
   return db.query(query, params)
     .then(data => {
+      console.log("saved")
       return data.rows
     });
 };
@@ -108,6 +114,7 @@ const postAnswers = (data) => {
   for (const each of data) {
     for (let x = 0; x < each.answers.length; x++) {
       query += `($${counter + 1},$${counter + 2}),\n`;
+      console.log("x", x, 'query\n', query)
       params.push(each.questionId, each.answers[x]);
       counter += 2;
     }
@@ -117,6 +124,7 @@ const postAnswers = (data) => {
 
   return db.query(query, params)
     .then(data => {
+      console.log("saved")
       return data.rows
     });
 };
