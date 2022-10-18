@@ -1,19 +1,42 @@
 $(document).ready(function() {
-  console.log('data');
+
+  const displayUser = function() {
+    // should use cookies somewhere instead of this
+    $.ajax("/api/users", {
+      method: "GET"
+    })
+    .then((response) => {
+      const username = `
+      <a class="nav-item nav-link" href="#">
+      ${response.users[0].name}
+      </a>
+      `;
+      const $user = $("#user");
+      $(username).prependTo($user);
+    })
+    .catch((err) => {
+      console.log("Error: ", err);
+    });
+  }
+
+  displayUser();
 
   const loadQuizzes = function() {
     $.ajax("/api/quizzes", {
       method: "GET"
     })
-      .then((response) => {
-        displayQuizzes(response);
-      });
+    .then((response) => {
+      displayQuizzes(response);
+    })
+    .catch((err) => {
+      console.log("Error: ", err);
+    });
   };
 
   loadQuizzes();
 
   const createQuizRow = function(quiz) {
-    // html markup
+    // html markup for row in quiz table
     let $quiz = `
       <tr>
         <td>${quiz.id}</td>
@@ -25,7 +48,6 @@ $(document).ready(function() {
   };
 
   const displayQuizzes = function(quizzes) {
-
     const $quiz = $("#quiz-table");
     for (let key of Object.keys(quizzes)) {
       $(createQuizRow(quizzes[key])).appendTo($quiz);
