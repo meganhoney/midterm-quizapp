@@ -26,7 +26,7 @@ $(document).ready(function() {
       method: "GET"
     })
     .then((response) => {
-      displayQuizzes(response);
+      displayAllQuizzes(response);
     })
     .catch((err) => {
       console.log("Error: ", err);
@@ -47,10 +47,33 @@ $(document).ready(function() {
     return $quiz;
   };
 
-  const displayQuizzes = function(quizzes) {
+  const displayAllQuizzes = function(quizzes) {
     const $quiz = $("#quiz-table");
     for (let key of Object.keys(quizzes)) {
       $(createQuizRow(quizzes[key])).appendTo($quiz);
     }
   };
+
+  const loadQuiz = function() {
+    $.ajax("/api/quizzes/1", {
+      method: "GET"
+    })
+    .then((response) => {
+      displayQuiz(response);
+    })
+    .catch((err) => {
+      console.log("Error: ", err);
+    });
+  };
+
+  loadQuiz();
+
+  const createQuizQuestion = function(quiz) {
+    const multipleChoice = `
+
+    `;
+  }
+  const displayQuiz = function(quiz) {
+    //console.log(quiz.questions[0]);
+  }
 });
