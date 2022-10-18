@@ -31,6 +31,7 @@ router.get('/:id', (req, res) => {
   quiz.getQuizzesById(quizId)
     .then((quizzes) => {
       quizObj = quizzes[0];
+  
       return quiz.getQuestionsByQuizzesId(quizId);
     })
     .then((questions) => {
