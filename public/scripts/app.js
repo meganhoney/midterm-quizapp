@@ -55,7 +55,9 @@ $(document).ready(function() {
   };
 
   const loadQuiz = function() {
-    $.ajax("/api/quizzes/1", {
+    let getId = document.location.href.split("/");
+    let id = getId.pop();
+    $.ajax(`/api/quizzes/${id}`, {
       method: "GET"
     })
     .then((response) => {
