@@ -59,7 +59,8 @@ $(document).ready(function() {
       method: "GET"
     })
     .then((response) => {
-      displayQuiz(response);
+      displayQuizTitle(response);
+      displayQuizOptions(response);
     })
     .catch((err) => {
       console.log("Error: ", err);
@@ -68,12 +69,53 @@ $(document).ready(function() {
 
   loadQuiz();
 
-  const createQuizQuestion = function(quiz) {
-    const multipleChoice = `
-
+  // Create and display h2 for quiz
+  const createQuizTitle = function(quiz) {
+    const $quizTitle = `
+      <h2>${quiz.title}</h2>
     `;
+    return $quizTitle;
   }
-  const displayQuiz = function(quiz) {
-    //console.log(quiz.questions[0]);
+
+  const displayQuizTitle = function(quiz) {
+    const $quizTitle = $("#quiz-title");
+    $(createQuizTitle(quiz)).appendTo($quizTitle);
+  }
+
+  // Create and display questions for quiz
+  const createQuizOptions = function(quiz) {
+    const $multipleChoice = `
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="question1" id="question1">
+      <label class="form-check-label" for="question1">
+        ${quiz.questions[0].options[0].option}
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="question2" id="question2">
+      <label class="form-check-label" for="question2">
+      ${quiz.questions[0].options[1].option}
+      </label>
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="question2" id="question2">
+    <label class="form-check-label" for="question2">
+    ${quiz.questions[0].options[2].option}
+    </label>
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="question2" id="question2">
+    <label class="form-check-label" for="question2">
+    ${quiz.questions[0].options[3].option}
+    </label>
+    </div>
+    `;
+
+    return $multipleChoice;
+  }
+
+  const displayQuizOptions = function(quiz) {
+    const $quizQuestion = $("#quiz-questions");
+    $(createQuizOptions(quiz)).prependTo($quizQuestion);
   }
 });
