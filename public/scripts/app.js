@@ -70,7 +70,7 @@ $(document).ready(function() {
 
   loadQuiz();
 
-  // Create and display h2 for quiz
+  // Create and display h2 for quiz (title)
   const createQuizTitle = function(quiz) {
     const $quizTitle = `
       <h2>${quiz.title}</h2>
@@ -88,7 +88,7 @@ $(document).ready(function() {
     const $quizQuestions = quiz.questions;
     for(let q of $quizQuestions) {
       let $quizQuestion = `
-        <article id="question${q.id}">
+        <article id="question${q.id}" class="quiz-question">
         <p>${q.question}</p>
         </article>
       `;
@@ -100,54 +100,34 @@ $(document).ready(function() {
   // Create and display options (possible answers) for quiz
   const displayQuizOptions = function(quiz) {
     const $quizQuestions = quiz.questions;
-    for (q of $quizQuestions) {
-      console.log(q);
-      const options = q.options;
-      for (o of options) {
-        let $quizOption = `
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="option${o.id}" id="option${o.id}">
-            <label class="form-check-label" for="option${o.id}">
-              ${o.option}
-            </label>
-          </div>
+    for (let q of $quizQuestions) {
+      if (q.question_type === 'Fill in the blank') {
+          let $quizBlank = `
+        <div class="form-group">
+        <label for="blank-question${q.id}" class="form-label">Fill in the blank:</label>
+        <input type="text" class="form-control fill-in-blank" id="blank-question${q.id}">
+        </div>
         `;
-        const $quizOptions = $(`#question${q.id}`);
-        $($quizOption).appendTo($quizOptions);
+        const $quizBlanks = $(`#question${q.id}`);
+          $($quizBlank).appendTo($quizBlanks);
+      }
+      const options = q.options;
+      for (let o of options) {
+
+        if (q.question_type === 'Multiple Choice') {
+          let $quizOption = `
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="option${o.id}" id="option${o.id}">
+              <label class="form-check-label" for="option${o.id}">
+                ${o.option}
+              </label>
+            </div>
+          `;
+          const $quizOptions = $(`#question${q.id}`);
+          $($quizOption).appendTo($quizOptions);
+        }
+
       }
     }
-    // const $multipleChoice = `
-    // <div class="form-check">
-    //   <input class="form-check-input" type="radio" name="question1" id="question1">
-    //   <label class="form-check-label" for="question1">
-    //     ${quiz.questions[0].options[0].option}
-    //   </label>
-    // </div>
-    // <div class="form-check">
-    //   <input class="form-check-input" type="radio" name="question2" id="question2">
-    //   <label class="form-check-label" for="question2">
-    //   ${quiz.questions[0].options[1].option}
-    //   </label>
-    // </div>
-    // <div class="form-check">
-    // <input class="form-check-input" type="radio" name="question2" id="question2">
-    // <label class="form-check-label" for="question2">
-    // ${quiz.questions[0].options[2].option}
-    // </label>
-    // </div>
-    // <div class="form-check">
-    // <input class="form-check-input" type="radio" name="question2" id="question2">
-    // <label class="form-check-label" for="question2">
-    // ${quiz.questions[0].options[3].option}
-    // </label>
-    // </div>
-    // `;
-
-    //return $multipleChoice;
   }
-
-  // const displayQuizOptions = function(quiz) {
-  //   const $question = $("#question1");
-  //   $(createQuizOptions(quiz)).appendTo($question);
-  // }
 });
