@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 });
 
 /*
-Post for creating a new quiz
+
 */
 router.post('/', (req, res) => {
   const quizData = req.body;
