@@ -49,7 +49,7 @@ const createOptionsData = (questionsArr, quizObj) => {
 
 router.post('/', (req, res) => {
   const quizData = req.body;
-  let saveQuestions;
+  const saved
 
   //console.log(quiz)
   quiz.postQuizzes(quizData)
@@ -60,15 +60,10 @@ router.post('/', (req, res) => {
       return quiz.postQuestions(questionsArr);
     })
     .then(data => {
-      saveQuestions = data;
       console.log("saved questions\n", data)
-      const optionsData = createOptionsData(data, quizData);
-      console.log("options data\n", optionsData);
+      const optionsData= createOptionsData(data, quizData);
+      console.log("options data\n",optionsData);
       return quiz.postOptions(optionsData);
-    })
-    .then(() => {
-      console.log("save questions\n", saveQuestions);
-      res.send("saved")
     })
     .catch(err => res.status(500).json({ error: err.message }));
 

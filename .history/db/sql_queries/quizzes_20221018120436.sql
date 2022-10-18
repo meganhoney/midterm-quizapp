@@ -55,10 +55,7 @@ INSERT INTO
   questions(quiz_id, question, question_type)
 VALUES
   (1, 'A', 'B'),
-  (1, 'A', 'B') RETURNING *;
+  (1, 'A', 'B')
+  RETURNING *;
 
-INSERT INTO
-  options(question_id, option)
-VALUES
-  (16, 'a'),
-  (16, 'b') RETURNING *;
+I

@@ -8,14 +8,6 @@ const getQuizzes = () => {
     });
 };
 
-/*
-{
-  user_id: '1',
-  title: 'Final',
-  topic: 'Exam',
-  public: 'true'
-}
-*/
 const postQuizzes = (data) => {
   const params = [data.user_id, data.title, data.topic, data.public];
 
@@ -32,17 +24,6 @@ const postQuizzes = (data) => {
 
 };
 
-/*
-[
-  {
-    quizId: 40,
-    question: 'WhatToDo',
-    questionType: 'Multiple Answers'
-  },
-  { quizId: 40, question: 'whatisit', questionType: 'Multiple Choice' }
-]
-
-*/
 const postQuestions = (data) => {
   let query = `
   INSERT INTO
@@ -72,28 +53,24 @@ const postOptions = (data) => {
   let query = `
   INSERT INTO
   options(question_id, option)
-  VALUES `;
+  VALUES\n`;
   const params = [];
   let counter = 0;
 
   for (const each of data) {
     for (let x = 0; x < each.options.length; x++) {
-      query += `($${counter + 1},$${counter + 2}),\n`;
+      counter++;
+      query += x + 1 === each.options.length ? `($${x *  counter + 1},$${x * 2 * counter + 2})\n` : `($${x * 2 * counter + 1},$${x * 2 * counter + 2}),\n`;
       console.log("x", x, 'query\n', query)
       params.push(each.questionId, each.options[x]);
-      counter += 2;
     }
   }
-  query = query.slice(0, -2);
   query += '\nRETURNING *;';
   console.log("query\n", query);
   console.log("params\n", params);
 
   return db.query(query, params)
-    .then(data => {
-      console.log("saved")
-      return data.rows
-    });
+    .then(data => data.rows);
 };
 
 

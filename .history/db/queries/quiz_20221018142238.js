@@ -8,14 +8,6 @@ const getQuizzes = () => {
     });
 };
 
-/*
-{
-  user_id: '1',
-  title: 'Final',
-  topic: 'Exam',
-  public: 'true'
-}
-*/
 const postQuizzes = (data) => {
   const params = [data.user_id, data.title, data.topic, data.public];
 
@@ -32,17 +24,6 @@ const postQuizzes = (data) => {
 
 };
 
-/*
-[
-  {
-    quizId: 40,
-    question: 'WhatToDo',
-    questionType: 'Multiple Answers'
-  },
-  { quizId: 40, question: 'whatisit', questionType: 'Multiple Choice' }
-]
-
-*/
 const postQuestions = (data) => {
   let query = `
   INSERT INTO
@@ -84,7 +65,7 @@ const postOptions = (data) => {
       counter += 2;
     }
   }
-  query = query.slice(0, -2);
+  query.slice(0, -1);
   query += '\nRETURNING *;';
   console.log("query\n", query);
   console.log("params\n", params);

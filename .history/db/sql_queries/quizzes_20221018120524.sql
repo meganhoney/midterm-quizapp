@@ -60,5 +60,5 @@ VALUES
 INSERT INTO
   options(question_id, option)
 VALUES
-  (16, 'a'),
-  (16, 'b') RETURNING *;
+(16, 'a'),
+;

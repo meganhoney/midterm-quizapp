@@ -68,7 +68,7 @@ router.post('/', (req, res) => {
     })
     .then(() => {
       console.log("save questions\n", saveQuestions);
-      res.send("saved")
+      
     })
     .catch(err => res.status(500).json({ error: err.message }));
 

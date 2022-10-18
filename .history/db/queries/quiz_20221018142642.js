@@ -8,14 +8,6 @@ const getQuizzes = () => {
     });
 };
 
-/*
-{
-  user_id: '1',
-  title: 'Final',
-  topic: 'Exam',
-  public: 'true'
-}
-*/
 const postQuizzes = (data) => {
   const params = [data.user_id, data.title, data.topic, data.public];
 

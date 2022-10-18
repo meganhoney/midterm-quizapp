@@ -40,7 +40,7 @@ const createOptionsData = (questionsArr, quizObj) => {
   const optionsArr = [];
   for (let x = 0; x < questionsArr.length; x++) {
     const optionObj = {};
-    optionObj.questionId = questionsArr[x].id;
+    optionObj.questionId = questionArr[x].id;
     optionObj.options = quizObj["options" + x];
     optionsArr.push(optionObj);
   }
@@ -49,7 +49,6 @@ const createOptionsData = (questionsArr, quizObj) => {
 
 router.post('/', (req, res) => {
   const quizData = req.body;
-  let saveQuestions;
 
   //console.log(quiz)
   quiz.postQuizzes(quizData)
@@ -60,15 +59,10 @@ router.post('/', (req, res) => {
       return quiz.postQuestions(questionsArr);
     })
     .then(data => {
-      saveQuestions = data;
       console.log("saved questions\n", data)
-      const optionsData = createOptionsData(data, quizData);
-      console.log("options data\n", optionsData);
-      return quiz.postOptions(optionsData);
-    })
-    .then(() => {
-      console.log("save questions\n", saveQuestions);
-      res.send("saved")
+      console.log("options data", createOptionsData(data, quizData));
+      res.json(data);
+
     })
     .catch(err => res.status(500).json({ error: err.message }));
 

@@ -66,10 +66,7 @@ router.post('/', (req, res) => {
       console.log("options data\n", optionsData);
       return quiz.postOptions(optionsData);
     })
-    .then(() => {
-      console.log("save questions\n", saveQuestions);
-      res.send("saved")
-    })
+    .then(()=>{})
     .catch(err => res.status(500).json({ error: err.message }));
 
 })
