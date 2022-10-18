@@ -12,23 +12,23 @@ $(document).ready(function() {
 
   loadQuizzes();
 
-  const createQuizElement = function(quiz) {
+  const createQuizRow = function(quiz) {
     // html markup
     let $quiz = `
-      <article>
-      <table>
-        <p>${quiz.title}</p>
-      </article>
+      <tr>
+        <td>${quiz.id}</td>
+        <td><a href="#">${quiz.title}</a></td>
+        <td>${quiz.topic}</td>
+      </tr>
     `;
     return $quiz;
   };
 
   const displayQuizzes = function(quizzes) {
 
-    const $quizzes = $("#quizzes").empty();
-    console.log(quizzes);
+    const $quiz = $("#quiz-table");
     for (let key of Object.keys(quizzes)) {
-      $(createQuizElement(quizzes[key])).appendTo($quizzes);
+      $(createQuizRow(quizzes[key])).appendTo($quiz);
     }
   };
 });
