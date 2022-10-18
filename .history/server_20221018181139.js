@@ -26,13 +26,6 @@ app.use(
   })
 );
 app.use(express.static('public'));
-app.use(cookieSession({
-  name: 'session',
-  keys: ['abc12345key'],
-
-  // Cookie Options
-  maxAge: 24 * 60 * 60 * 1000 // 24 hours
-}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own

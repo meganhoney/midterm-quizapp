@@ -21,7 +21,7 @@ router.get('/my_quizzes/new',(req,res)=>{
 })
 
 router.get('/user/:id',(req,res)=>{
-
+  
 })
 
 module.exports = router;
