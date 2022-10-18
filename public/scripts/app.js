@@ -40,7 +40,7 @@ $(document).ready(function() {
     let $quiz = `
       <tr>
         <td>${quiz.id}</td>
-        <td><a href="#">${quiz.title}</a></td>
+        <td><a href="/${quiz.id}">${quiz.title}</a></td>
         <td>${quiz.topic}</td>
       </tr>
     `;
