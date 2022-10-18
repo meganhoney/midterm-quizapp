@@ -20,16 +20,10 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
-  const quizData = req.body;
-  //console.log(quiz)
-  quiz.postQuizzes(quizData)
-    .then(data => {
-      console.log(data);
-      return res.json(data);
-    })
-    .catch(err => res.status(500).json({ error: err.message }));
-
+router.post('/',(req,res)=>{
+  const quiz = req.body;
+  console.log(quiz)
+  res.send("saved!")
 })
 
 /*

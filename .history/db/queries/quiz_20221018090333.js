@@ -24,8 +24,6 @@ const postQuizzes=(data) =>{
 
 };
 
-
-
 const getQuizzesById = (id) => {
   return db.query(`
   SELECT

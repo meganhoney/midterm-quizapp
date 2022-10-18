@@ -24,8 +24,6 @@ const postQuizzes=(data) =>{
 
 };
 
-
-
 const getQuizzesById = (id) => {
   return db.query(`
   SELECT
@@ -109,6 +107,5 @@ module.exports = {
   getOptionsByQuestionsId,
   getAnswersByQuestionsId,
   attachOptions,
-  attachAnswers,
-  postQuizzes
+  attachAnswers
 };

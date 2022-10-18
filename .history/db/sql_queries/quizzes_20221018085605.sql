@@ -43,10 +43,7 @@ FROM
 WHERE
   question_id = 1;
 
-/*
- POST QUIZ
- */
-INSERT INTO
-  quizzes (user_id, title, topic, public)
-VALUES
-(1, 'a', 'b', true);
+  /*
+  POST QUIZ
+  */
+INSERT INTO quizzes (user)

@@ -9,22 +9,19 @@ const getQuizzes = () => {
 };
 
 const postQuizzes=(data) =>{
-  const params = [data.user_id, data.title, data.topic, data.public];
+  const params = [data.user_id, data.title, data.topic, data.public]
 
   return db.query(`
   INSERT INTO
   quizzes (user_id, title, topic, public)
   VALUES
-  ($1, $2, $3, $4)
-  RETURNING *;
+  ($1, $2, $3, $4);
 
 
   `,params)
   .then(data => data.rows[0]);
 
 };
-
-
 
 const getQuizzesById = (id) => {
   return db.query(`
@@ -109,6 +106,5 @@ module.exports = {
   getOptionsByQuestionsId,
   getAnswersByQuestionsId,
   attachOptions,
-  attachAnswers,
-  postQuizzes
+  attachAnswers
 };

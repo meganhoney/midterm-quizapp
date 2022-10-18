@@ -15,16 +15,13 @@ const postQuizzes=(data) =>{
   INSERT INTO
   quizzes (user_id, title, topic, public)
   VALUES
-  ($1, $2, $3, $4)
-  RETURNING *;
+  ($1, $2, $3, $4);
 
 
   `,params)
   .then(data => data.rows[0]);
 
 };
-
-
 
 const getQuizzesById = (id) => {
   return db.query(`
@@ -109,6 +106,5 @@ module.exports = {
   getOptionsByQuestionsId,
   getAnswersByQuestionsId,
   attachOptions,
-  attachAnswers,
-  postQuizzes
+  attachAnswers
 };

@@ -21,9 +21,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const quizData = req.body;
+  const quiz = req.body;
   //console.log(quiz)
-  quiz.postQuizzes(quizData)
+  quiz.postQuizzes(data)
     .then(data => {
       console.log(data);
       return res.json(data);

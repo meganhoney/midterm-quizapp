@@ -48,5 +48,3 @@ WHERE
  */
 INSERT INTO
   quizzes (user_id, title, topic, public)
-VALUES
-(1, 'a', 'b', true);
