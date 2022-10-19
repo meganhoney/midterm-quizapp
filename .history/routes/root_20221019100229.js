@@ -21,8 +21,8 @@ router.get('/attempted', (req, res) => {
   res.render('my_results');
 });
 
-router.get('/attempted/:id', (req, res) => {
-  res.render('score_quiz');
+router.get('/attempted/id', (req, res) => {
+  res.render('my_results');
 });
 
 router.get('/my_quizzes/new', (req, res) => {

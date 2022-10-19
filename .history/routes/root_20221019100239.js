@@ -22,7 +22,7 @@ router.get('/attempted', (req, res) => {
 });
 
 router.get('/attempted/:id', (req, res) => {
-  res.render('score_quiz');
+  res.render('my_score');
 });
 
 router.get('/my_quizzes/new', (req, res) => {
