@@ -1,14 +1,14 @@
 $(document).ready(function() {
 
   const displayUser = function() {
-    
+
     $.ajax("/api/users", {
       method: "GET"
     })
     .then((response) => {
       const username = `
       <a class="nav-item nav-link" href="#">
-      ${response.users[0].name}
+      ${response.user[0].name}
       </a>
       `;
       const $user = $("#user");
@@ -21,7 +21,7 @@ $(document).ready(function() {
 
   displayUser();
 
-  const loadQuizzes = function() {
+  const loadAllQuizzes = function() {
     $.ajax("/api/quizzes", {
       method: "GET"
     })
@@ -33,7 +33,7 @@ $(document).ready(function() {
     });
   };
 
-  loadQuizzes();
+  loadAllQuizzes();
 
   const createQuizRow = function(quiz) {
     // html markup for row in quiz table
