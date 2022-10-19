@@ -26,7 +26,7 @@ router.get('/my_quizzes/new', (req, res) => {
 
 
 //All quizzes created by the user with all people attempted
-router.get('/my_quizzes/:id', (req, res) => {
+router.get('/attempted/:id', (req, res) => {
   console.log('im here')
   res.render('quiz_all_results');
 });

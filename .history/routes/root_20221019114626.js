@@ -18,19 +18,10 @@ router.get('/my_quizzes', (req, res) => {
   res.render('my_quizzes');
 });
 
-
-//Create a new quiz view
-router.get('/my_quizzes/new', (req, res) => {
-  res.render('new_quiz');
+//All quizzes created by the user
+router.get('/my_quizzes', (req, res) => {
+  res.render('my_quizzes');
 });
-
-
-//All quizzes created by the user with all people attempted
-router.get('/my_quizzes/:id', (req, res) => {
-  console.log('im here')
-  res.render('quiz_all_results');
-});
-
 
 //All quizzes attempted by the user
 router.get('/attempted', (req, res) => {
@@ -42,7 +33,10 @@ router.get('/attempted/:id', (req, res) => {
   res.render('score_quiz');
 });
 
-
+//Create a new quiz view
+router.get('/my_quizzes/new', (req, res) => {
+  res.render('new_quiz');
+});
 
 //Details of a quiz by id
 router.get('/:id', (req, res) => {

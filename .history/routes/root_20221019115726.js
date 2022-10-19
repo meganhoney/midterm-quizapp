@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 //All quizzes created by the user
-router.get('/my_quizzes', (req, res) => {
+router.get('/my_quizzes/', (req, res) => {
   res.render('my_quizzes');
 });
 

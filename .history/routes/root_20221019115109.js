@@ -18,19 +18,16 @@ router.get('/my_quizzes', (req, res) => {
   res.render('my_quizzes');
 });
 
-
 //Create a new quiz view
 router.get('/my_quizzes/new', (req, res) => {
   res.render('new_quiz');
 });
 
-
 //All quizzes created by the user with all people attempted
 router.get('/my_quizzes/:id', (req, res) => {
-  console.log('im here')
+  console.log()
   res.render('quiz_all_results');
 });
-
 
 //All quizzes attempted by the user
 router.get('/attempted', (req, res) => {
