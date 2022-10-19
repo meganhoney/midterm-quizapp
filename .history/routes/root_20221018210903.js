@@ -18,9 +18,9 @@ router.get('/:id', (req, res) => {
 
 router.post('/score', (req, res) => {
   const userId = req.session.userID;
-  const answersObj = req.body;
+  const answersObj = reg.body;
   console.log("userid", userId);
-  console.log("answerObj", answersObj)
+  console.log("answerObj", answers)
   res.render('score_quiz');
 
 });

@@ -16,14 +16,7 @@ router.get('/:id', (req, res) => {
   res.render('take_quiz');
 });
 
-router.post('/score', (req, res) => {
-  const userId = req.session.userID;
-  const answersObj = req.body;
-  console.log("userid", userId);
-  console.log("answerObj", answersObj)
-  res.render('score_quiz');
-
-});
+router.post('/:id')
 
 router.get('/my_quizzes/new', (req, res) => {
   res.render('new_quiz');

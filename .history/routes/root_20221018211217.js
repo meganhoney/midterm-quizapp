@@ -20,7 +20,7 @@ router.post('/score', (req, res) => {
   const userId = req.session.userID;
   const answersObj = req.body;
   console.log("userid", userId);
-  console.log("answerObj", answersObj)
+  console.log("answerObj", answers)
   res.render('score_quiz');
 
 });
