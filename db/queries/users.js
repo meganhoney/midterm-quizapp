@@ -30,8 +30,24 @@ const getQuizzesByUserId = (user_id) => {
     console.log(err.message);
   });
 }
+
+const getResultsByUserId = (user_id) => {
+  return db.query(`
+  SELECT quizzes.title as quiz, results.created_at, results.score
+  FROM results
+  JOIN quizzes ON quizzes.id = quiz_id WHERE results.user_id = $1;
+  `, [user_id])
+  .then((data => {
+    return data.rows;
+  }))
+  .catch((err) => {
+    console.log(err.message);
+  });
+}
+
 module.exports = {
   getUsers,
   getUserById,
-  getQuizzesByUserId
+  getQuizzesByUserId,
+  getResultsByUserId
 };
