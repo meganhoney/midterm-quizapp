@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   const displayUser = function() {
-    // should use cookies somewhere instead of this
+    
     $.ajax("/api/users", {
       method: "GET"
     })
