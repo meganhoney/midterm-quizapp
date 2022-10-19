@@ -281,7 +281,7 @@ const attachAnswers = async (questions) => {
 module.exports = {
   getQuizzes,
   getQuizzesById,
-  getQuizzesByUserId,
+  getQuizzes
   getQuestionsByQuizzesId,
   getOptionsByQuestionsId,
   getAnswersByQuestionsId,

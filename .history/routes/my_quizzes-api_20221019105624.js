@@ -12,7 +12,7 @@ const quiz = require('../db/queries/quiz');
 router.get('/', (req, res) => {
   const userId = req.session.userID;
 
-  quiz.getQuizzesByUserId(userId)
+  quiz.getQuiz(userId)
     .then(data => res.json(data))
     .catch((err) => {
       res
