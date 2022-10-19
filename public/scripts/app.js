@@ -99,7 +99,7 @@ Ajax request and functions to display all quizzes created by the logged in user
 Ajax request and functions to display all results of logged in user
 */
 const loadMyResults = function() {
-    $.ajax("/api/users/my_quizzes", {
+    $.ajax("/api/users/my_results", {
       method: "GET"
     })
     .then((response) => {
@@ -115,19 +115,18 @@ const loadMyResults = function() {
   const createMyResultRow = function(result) {
     let $result = `
       <tr>
-        <td>${quiz.id}</td>
-        <td><a href="/${quiz.id}">${quiz.title}</a></td>
-        <td>${quiz.topic}</td>
-        <td>${quiz.number_of_attempts}</td>
+        <td>${result.quiz}</td>
+        <td>${new Date(result.created_at)}</td>
+        <td>${result.score}%</td>
       </tr>
     `;
     return $result;
   };
 
   const displayMyResults = function(myQuizzes) {
-    const $quiz = $("#my-quiz-table");
+    const $results = $("#my-results-table");
     for (let key of Object.keys(myQuizzes)) {
-      $(createMyQuizRow(myQuizzes[key])).appendTo($quiz);
+      $(createMyResultRow(myQuizzes[key])).appendTo($results);
     }
   };
 });
