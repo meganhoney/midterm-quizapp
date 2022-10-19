@@ -176,7 +176,7 @@ const getQuestionsByQuizzesId = (quizId) => {
 const getOptionsByQuestionsId = (questionId) => {
   return db.query(`
   SELECT
-    *
+  *
   FROM
     options
   WHERE
@@ -190,7 +190,7 @@ const getOptionsByQuestionsId = (questionId) => {
 const getAnswersByQuestionsId = (questionId) => {
   return db.query(`
   SELECT
-    *
+  *
   FROM
     answers
   WHERE

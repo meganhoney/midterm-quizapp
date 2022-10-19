@@ -8,30 +8,8 @@ const getQuizzes = () => {
     });
 };
 
-const getQuizzesByUserId = (userId) => {
-  return db.query(`
-  SELECT
-    quizzes.id,
-    quizzes.user_id,
-    quizzes.title,
-    quizzes.topic,
-    quizzes.public,
-    quizzes.created_at,
-    COUNT (results) AS number_of_attempts
-  FROM
-    quizzes
-    JOIN results ON quizzes.id = results.quiz_id
-  WHERE
-    quizzes.user_id = $1
-    AND quizzes.completed_at IS NULL
-  GROUP BY
-    quizzes.id
-  ORDER BY
-    created_at DESC;
+const getQuizzesByUserId=(userId)
 
-`, [userId])
-    .then(data => data.rows);
-}
 /*
 {
   user_id: '1',
@@ -45,9 +23,9 @@ const postQuizzes = (data) => {
 
   return db.query(`
   INSERT INTO
-    quizzes (user_id, title, topic, public)
+  quizzes (user_id, title, topic, public)
   VALUES
-    ($1, $2, $3, $4)
+  ($1, $2, $3, $4)
   RETURNING *;
 
 
@@ -70,7 +48,7 @@ const postQuizzes = (data) => {
 const postQuestions = (data) => {
   let query = `
   INSERT INTO
-    questions(quiz_id, question, question_type)
+  questions(quiz_id, question, question_type)
   VALUES`;
   const params = [];
 
@@ -93,7 +71,7 @@ const postQuestions = (data) => {
 const postOptions = (data) => {
   let query = `
   INSERT INTO
-    options(question_id, option)
+  options(question_id, option)
   VALUES `;
   const params = [];
   let counter = 0;
@@ -124,7 +102,7 @@ const postOptions = (data) => {
 const postAnswers = (data) => {
   let query = `
   INSERT INTO
-    answers (question_id, answer)
+  answers (question_id, answer)
   VALUES `;
   const params = [];
   let counter = 0;
@@ -148,7 +126,7 @@ const postAnswers = (data) => {
 const getQuizzesById = (id) => {
   return db.query(`
   SELECT
-    *
+  *
   FROM
     quizzes
   WHERE
@@ -162,7 +140,7 @@ const getQuizzesById = (id) => {
 const getQuestionsByQuizzesId = (quizId) => {
   return db.query(`
   SELECT
-    *
+  *
   FROM
     questions
   WHERE
@@ -176,7 +154,7 @@ const getQuestionsByQuizzesId = (quizId) => {
 const getOptionsByQuestionsId = (questionId) => {
   return db.query(`
   SELECT
-    *
+  *
   FROM
     options
   WHERE
@@ -190,7 +168,7 @@ const getOptionsByQuestionsId = (questionId) => {
 const getAnswersByQuestionsId = (questionId) => {
   return db.query(`
   SELECT
-    *
+  *
   FROM
     answers
   WHERE

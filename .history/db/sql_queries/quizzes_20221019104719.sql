@@ -121,7 +121,7 @@ FROM
   quizzes
   JOIN results ON quizzes.id = results.quiz_id
 WHERE
-  quizzes.user_id = 2
+  quizzes.user_id = 1
   AND quizzes.completed_at IS NULL
 GROUP BY
   quizzes.id

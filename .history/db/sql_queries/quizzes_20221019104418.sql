@@ -115,15 +115,11 @@ SELECT
   quizzes.title,
   quizzes.topic,
   quizzes.public,
-  quizzes.created_at,
+  quizzes.created_at
   COUNT (results) AS number_of_attempts
 FROM
   quizzes
   JOIN results ON quizzes.id = results.quiz_id
 WHERE
-  quizzes.user_id = 2
-  AND quizzes.completed_at IS NULL
-GROUP BY
-  quizzes.id
-ORDER BY
-  created_at DESC;
+  user_id = 1
+  AND completed_at IS NULL;
