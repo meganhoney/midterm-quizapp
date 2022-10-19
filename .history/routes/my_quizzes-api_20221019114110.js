@@ -28,9 +28,6 @@ router.get('/:id', (req, res) => {
     .then(quizzes => {
       return quiz.attachResults(quizzes);
     })
-    .then(newQuizzes => {
-      res.json(newQuizzes);
-    })
     .catch((err) => {
       res
         .status(500)

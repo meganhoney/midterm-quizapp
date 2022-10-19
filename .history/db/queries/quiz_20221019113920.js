@@ -345,7 +345,6 @@ module.exports = {
   getAnswersByQuestionsId,
   attachOptions,
   attachAnswers,
-  attachResults,
   postQuizzes,
   postQuestions,
   postOptions,

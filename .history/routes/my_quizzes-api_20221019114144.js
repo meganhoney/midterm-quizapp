@@ -28,8 +28,8 @@ router.get('/:id', (req, res) => {
     .then(quizzes => {
       return quiz.attachResults(quizzes);
     })
-    .then(newQuizzes => {
-      res.json(newQuizzes);
+    .then(newQuizzes=>{
+      res.json(new)
     })
     .catch((err) => {
       res

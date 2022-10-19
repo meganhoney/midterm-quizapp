@@ -291,18 +291,19 @@ const getResultsByResultId = (resultId) => {
 /*
 Get result by id
 */
-const getResultsByQuizId = (quizId) => {
+const getResultsByResultId = (resultId) => {
   return db.query(`
-  SELECT
-    *
-  FROM
-    results
-  WHERE
-    quiz_id = $1
-  ORDER BY
-    created_at DESC;
+      SELECT
+      results.*,
+      quizzes.title AS title,
+      quizzes.topic AS topic
+    FROM
+      results
+      JOIN quizzes ON results.quiz_id = quizzes.id
+    WHERE
+      results.id = $1;
 
-  `, [quizId])
+  `, [resultId])
     .then(data => data.rows);
 }
 
@@ -324,15 +325,6 @@ const attachAnswers = async (questions) => {
   return newQuestions;
 }
 
-const attachResults = async (quizzes) => {
-  const newQuizzes = await Promise.all(quizzes.map(async (quiz) => {
-    quiz.results = await getResultsByQuizId(quiz.id);
-    return quiz
-  }));
-
-  return newQuizzes;
-}
-
 
 
 module.exports = {
@@ -345,12 +337,10 @@ module.exports = {
   getAnswersByQuestionsId,
   attachOptions,
   attachAnswers,
-  attachResults,
   postQuizzes,
   postQuestions,
   postOptions,
   postAnswers,
   getResultsByUserId,
-  getResultsByResultId,
-  getResultsByQuizId
+  getResultsByResultId
 };

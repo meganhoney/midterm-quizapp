@@ -25,12 +25,7 @@ router.get('/:id', (req, res) => {
   const resultId = req.params.id;
 
   quiz.getQuizOnlyById(resultId)
-    .then(quizzes => {
-      return quiz.attachResults(quizzes);
-    })
-    .then(newQuizzes => {
-      res.json(newQuizzes);
-    })
+    .then(data => {res.json(data))
     .catch((err) => {
       res
         .status(500)

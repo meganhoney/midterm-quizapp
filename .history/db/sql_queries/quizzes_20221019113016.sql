@@ -128,8 +128,8 @@ GROUP BY
 ORDER BY
   created_at DESC;
 
-/*
- Get a quiz by Id
+  /*
+Get a quiz by Id
  */
 SELECT
   quizzes.id,
@@ -149,13 +149,4 @@ GROUP BY
   quizzes.id;
 
 /*
- Get results by quiz id
- */
-SELECT
-  *
-FROM
-  results
-WHERE
-  quiz_id = 1
-ORDER BY
-  created_at DESC;
+*/

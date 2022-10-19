@@ -330,7 +330,7 @@ const attachResults = async (quizzes) => {
     return quiz
   }));
 
-  return newQuizzes;
+  return newQuestions;
 }
 
 
@@ -345,7 +345,6 @@ module.exports = {
   getAnswersByQuestionsId,
   attachOptions,
   attachAnswers,
-  attachResults,
   postQuizzes,
   postQuestions,
   postOptions,

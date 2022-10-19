@@ -157,5 +157,5 @@ FROM
   results
 WHERE
   quiz_id = 1
-ORDER BY
-  created_at DESC;
+
+  ;

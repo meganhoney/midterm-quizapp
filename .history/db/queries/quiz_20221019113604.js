@@ -294,11 +294,11 @@ Get result by id
 const getResultsByQuizId = (quizId) => {
   return db.query(`
   SELECT
-    *
+  *
   FROM
     results
   WHERE
-    quiz_id = $1
+    quiz_id = 1
   ORDER BY
     created_at DESC;
 
@@ -324,15 +324,6 @@ const attachAnswers = async (questions) => {
   return newQuestions;
 }
 
-const attachResults = async (quizzes) => {
-  const newQuizzes = await Promise.all(quizzes.map(async (quiz) => {
-    quiz.results = await getResultsByQuizId(quiz.id);
-    return quiz
-  }));
-
-  return newQuizzes;
-}
-
 
 
 module.exports = {
@@ -345,12 +336,10 @@ module.exports = {
   getAnswersByQuestionsId,
   attachOptions,
   attachAnswers,
-  attachResults,
   postQuizzes,
   postQuestions,
   postOptions,
   postAnswers,
   getResultsByUserId,
-  getResultsByResultId,
-  getResultsByQuizId
+  getResultsByResultId
 };
