@@ -330,7 +330,7 @@ const attachResults = async (quizzes) => {
     return quiz
   }));
 
-
+  
   return newQuizzes;
 }
 
