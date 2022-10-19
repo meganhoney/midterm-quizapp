@@ -22,10 +22,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  const resultId = req.params.id;
-  console.log('resultid',resultId)
+  const resultId = req.para
 
-  quiz.getResultsByResultId(resultId)
+  quiz.getResultsByUserId(userId)
     .then(data => res.json(data))
     .catch((err) => {
       res
@@ -33,7 +32,7 @@ router.get('/:id', (req, res) => {
         .json({ error: err.message });
     });
 });
-
+});
 
 
 module.exports = router;

@@ -229,7 +229,10 @@ const getResultsByResultId = (resultId) => {
       results.id = $1;
 
   `, [resultId])
-    .then(data => data.rows);
+    .then(data => {
+      console.log("data", data.rows)
+      return data.rows
+    });
 }
 
 

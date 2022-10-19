@@ -181,7 +181,7 @@ const getAnswersByQuestionsId = (questionId) => {
 /*
 Get all results which are the quizzes has attempted
 */
-const getResultsByUserId = (userId) => {
+const getResultsByUserId=(userId) =>{
   return db.query(`
   select
   *
@@ -216,7 +216,7 @@ ORDER by
 /*
 Get result by id
 */
-const getResultsByResultId = (resultId) => {
+const getResultsByResultId=(resultId) =>{
   return db.query(`
       SELECT
       results.*,
@@ -226,9 +226,9 @@ const getResultsByResultId = (resultId) => {
       results
       JOIN quizzes ON results.quiz_id = quizzes.id
     WHERE
-      results.id = $1;
+      results.id=$1;
 
-  `, [resultId])
+  `, resultId)
     .then(data => data.rows);
 }
 

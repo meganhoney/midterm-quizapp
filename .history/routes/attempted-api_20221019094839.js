@@ -23,7 +23,6 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const resultId = req.params.id;
-  console.log('resultid',resultId)
 
   quiz.getResultsByResultId(resultId)
     .then(data => res.json(data))

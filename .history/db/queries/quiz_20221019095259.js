@@ -228,8 +228,11 @@ const getResultsByResultId = (resultId) => {
     WHERE
       results.id = $1;
 
-  `, [resultId])
-    .then(data => data.rows);
+  `, [resultId)
+    .then(data => {
+      console.log("data", data.rows)
+      return data.rows
+    });
 }
 
 
