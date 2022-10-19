@@ -179,8 +179,7 @@ const getAnswersByQuestionsId = (questionId) => {
 }
 
 /*
-Get all results which are the quizzes has attempted
-*/
+
 const getResultsByUserId=(userId) =>{
   return db.query(`
   select

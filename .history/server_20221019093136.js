@@ -51,6 +51,7 @@ app.use('/api/users', userApiRoutes);
 app.use('/api/quizzes', quizAPIRoutes);
 app.use('/api/attempted', attemptedAPIRoutes);
 app.use('/api/widgets', widgetApiRoutes);
+
 app.use('/users', usersRoutes);
 app.use('/', rootRoute);
 // Note: mount other resources here, using the same pattern above

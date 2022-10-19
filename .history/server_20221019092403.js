@@ -39,7 +39,7 @@ app.use(cookieSession({
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const quizAPIRoutes = require('./routes/quiz-api');
-const attemptedAPIRoutes = require('./routes/attempted-api');
+const attemptedAPIRoutes = require('./routes/attempted_api');
 const usersRoutes = require('./routes/users');
 const rootRoute = require('./routes/root');
 
@@ -49,8 +49,8 @@ const rootRoute = require('./routes/root');
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
 app.use('/api/quizzes', quizAPIRoutes);
-app.use('/api/attempted', attemptedAPIRoutes);
 app.use('/api/widgets', widgetApiRoutes);
+app.use('./api/attempted',)
 app.use('/users', usersRoutes);
 app.use('/', rootRoute);
 // Note: mount other resources here, using the same pattern above

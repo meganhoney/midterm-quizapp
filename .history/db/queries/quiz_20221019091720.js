@@ -178,9 +178,7 @@ const getAnswersByQuestionsId = (questionId) => {
     .then(data => data.rows);
 }
 
-/*
-Get all results which are the quizzes has attempted
-*/
+
 const getResultsByUserId=(userId) =>{
   return db.query(`
   select

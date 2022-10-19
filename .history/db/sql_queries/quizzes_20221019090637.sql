@@ -66,28 +66,19 @@ VALUES
 /*
  All attempted quiz
  */
-select
-  *
-from
-  (
-    SELECT
-      DISTINCT ON (results.quiz_id) quiz_id,
-      results.id AS id,
-      results.user_id AS user_id,
-      results.created_at AS created_at,
-      results.score AS score,
-      results.correct_answers AS correct_answers,
-      results.total_questions AS total_questions,
-      quizzes.title AS title,
-      quizzes.topic AS topic
-    FROM
-      results
-      JOIN quizzes ON results.quiz_id = quizzes.id
-    WHERE
-      results.user_id = 1
-    LIMIT
-      10
-  ) as results
-ORDER by
-  created_at DESC;
-
+SELECT
+  DISTINCT ON (results.quiz_id) quiz_id,
+  results.id AS id,
+  results.user_id AS user_id,
+  quizzes.title AS title,
+  quizzes.topic AS topic
+FROM
+  results
+  JOIN quizzes ON results.quiz_id = quizzes.id
+WHERE
+  results.user_id = 1
+ORDER BY
+  results.id,
+  results.quiz_id DESC
+LIMIT
+  10;
