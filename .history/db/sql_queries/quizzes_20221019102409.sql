@@ -86,10 +86,11 @@ from
     WHERE
       results.user_id = 1
     ORDER BY
-      results.quiz_id DESC
-    LIMIT
-      10
-  ) as results
+      quiz_id, created_at DESC
+
+LIMIT
+  10
+) as results
 ORDER by
   created_at DESC;
 

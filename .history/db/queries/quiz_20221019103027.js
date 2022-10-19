@@ -202,7 +202,7 @@ from
       JOIN quizzes ON results.quiz_id = quizzes.id
     WHERE
       results.user_id = $1
-    ORDER BY
+      ORDER BY
       results.quiz_id DESC
     LIMIT
       10

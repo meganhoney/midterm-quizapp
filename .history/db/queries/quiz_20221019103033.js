@@ -201,8 +201,7 @@ from
       results
       JOIN quizzes ON results.quiz_id = quizzes.id
     WHERE
-      results.user_id = $1
-    ORDER BY
+      results.user_id = $1ORDER BY
       results.quiz_id DESC
     LIMIT
       10

@@ -85,8 +85,6 @@ from
       JOIN quizzes ON results.quiz_id = quizzes.id
     WHERE
       results.user_id = 1
-    ORDER BY
-      results.quiz_id DESC
     LIMIT
       10
   ) as results
@@ -104,4 +102,4 @@ FROM
   results
   JOIN quizzes ON results.quiz_id = quizzes.id
 WHERE
-  results.id = 1;
+  results.id=1;

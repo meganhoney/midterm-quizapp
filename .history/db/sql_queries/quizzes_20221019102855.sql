@@ -86,7 +86,7 @@ from
     WHERE
       results.user_id = 1
     ORDER BY
-      results.quiz_id DESC
+      resultsquiz_id DESC
     LIMIT
       10
   ) as results
