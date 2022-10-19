@@ -29,6 +29,58 @@
   <main>
     <section class="container new-quiz">
       <h2>Create Quiz</h2>
+      <form id="new-quiz-form">
+        <div class="d-flex">
+          <label for="quiz-title" class="form-label">Title:</label>
+          <input type="text" class="form-control" id="quiz-title" placeholder="What would you like to call your quiz?">
+        </div>
+        <div class="d-flex">
+          <label for="quiz-description" class="form-label">Description:</label>
+          <input type="text" class="form-control" id="quiz-description" placeholder="Write a brief description of your quiz.">
+        </div>
+        <div class="d-flex">
+          <label for="quiz-topic" class="form-label">Topic:</label>
+          <select class="form-select" id="quiz-topic">
+            <option selected>Pick a topic</option>
+            <option value="1">General Trivia</option>
+            <option value="2">Food & Drink</option>
+            <option value="3">Geography</option>
+            <option value="4">Literature</option>
+            <option value="5">Entertainment</option>
+            <option value="6">Pop Culture</option>
+            <option value="7">Sports</option>
+            <option value="8">Science & Technology</option>
+          </select>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="quiz-private">
+          <label class="form-check-label" for="quiz-public">Check this box to create a private quiz</label>
+        </div>
+        <div class="d-flex">
+          <label for="question1" class="form-label">Question 1</label>
+          <select class="form-select" id="question1">
+            <option selected>Question Type</option>
+            <option value="1">Multiple Choice</option>
+            <option value="2">Fill in the blank</option>
+          </select>
+        </div>
+        <div class="d-flex">
+          <label for="question2" class="form-label">Question 2</label>
+          <select class="form-select" id="question2">
+            <option selected>Question Type</option>
+            <option value="1">Multiple Choice</option>
+            <option value="2">Fill in the blank</option>
+          </select>
+        </div>
+        <div class="d-flex">
+          <label for="question3" class="form-label">Question 3</label>
+          <select class="form-select" id="question3">
+            <option selected>Question Type</option>
+            <option value="1">Multiple Choice</option>
+            <option value="2">Fill in the blank</option>
+          </select>
+        </div>
+      </form>
     </section>
   </main>
 </body>
