@@ -17,7 +17,7 @@ router.get('/user/quizzes', (req, res) => {
   res.render('my_quizzes');
 });
 
-router.get('/attempted', (req, res) => {
+router.get('/user/results', (req, res) => {
   res.render('my_results');
 });
 

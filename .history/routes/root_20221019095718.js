@@ -17,18 +17,13 @@ router.get('/user/quizzes', (req, res) => {
   res.render('my_quizzes');
 });
 
-router.get('/attempted', (req, res) => {
+router.get('/user/results', (req, res) => {
   res.render('my_results');
 });
 
 router.get('/my_quizzes/new', (req, res) => {
   res.render('new_quiz');
 });
-
-router.get('/:id', (req, res) => {
-  res.render('take_quiz');
-});
-
 
 router.get('/user/:id', (req, res) => {
   const userId = req.params.id;
