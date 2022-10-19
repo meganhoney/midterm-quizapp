@@ -1,40 +1,40 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-  const loadQuiz = function () {
+  const loadQuiz = function() {
     let getId = document.location.href.split("/");
     let id = getId.pop();
     $.ajax(`/api/quizzes/${id}`, {
       method: "GET"
     })
-      .then((response) => {
-        displayQuizTitle(response);
-        displayQuizQuestions(response);
-        displayQuizOptions(response);
-      })
-      .catch((err) => {
-        console.log("Error: ", err);
-      });
+    .then((response) => {
+      displayQuizTitle(response);
+      displayQuizQuestions(response);
+      displayQuizOptions(response);
+    })
+    .catch((err) => {
+      console.log("Error: ", err);
+    });
   };
 
   loadQuiz();
 
   // Create and display h2 for quiz (title)
-  const createQuizTitle = function (quiz) {
+  const createQuizTitle = function(quiz) {
     const $quizTitle = `
       <h2>${quiz.title}</h2>
     `;
     return $quizTitle;
   }
 
-  const displayQuizTitle = function (quiz) {
+  const displayQuizTitle = function(quiz) {
     const $quizTitle = $("#quiz-title");
     $(createQuizTitle(quiz)).appendTo($quizTitle);
   }
 
   // Create and display questions for quiz
-  const displayQuizQuestions = function (quiz) {
+  const displayQuizQuestions = function(quiz) {
     const $quizQuestions = quiz.questions;
-    for (let q of $quizQuestions) {
+    for(let q of $quizQuestions) {
       let $quizQuestion = `
         <article id="question${q.id}" class="quiz-question">
         <p>${q.question}</p>
@@ -46,18 +46,18 @@ $(document).ready(function () {
   }
 
   // Create and display options (possible answers) for quiz
-  const displayQuizOptions = function (quiz) {
+  const displayQuizOptions = function(quiz) {
     const $quizQuestions = quiz.questions;
     for (let q of $quizQuestions) {
       if (q.question_type === 'Fill in the blank') {
-        let $quizBlank = `
+          let $quizBlank = `
         <div class="form-group">
         <label for="blank-question${q.id}" class="form-label">Fill in the blank:</label>
         <input type="text" class="form-control fill-in-blank" id="blank-question${q.id}" name="${q.id}">
         </div>
         `;
         const $quizBlanks = $(`#question${q.id}`);
-        $($quizBlank).appendTo($quizBlanks);
+          $($quizBlank).appendTo($quizBlanks);
       }
       const options = q.options;
       for (let o of options) {
@@ -79,12 +79,11 @@ $(document).ready(function () {
     }
     //send the quiz using hidden input
     let $hiddenInput = `
-      <div class="form-group">
-        <input type="hidden" name="quiz_id" value="${quiz.id}"/>
-      <div class="form-group">
+
+        <input type="time" name="quizObj" value="${quiz}">
         `;
-        const $quizQuestionText = $("#quiz-questions");
-    $($hiddenInput).appendTo($quizQuestionText);
+        const $quizBlanks = $(`#question${q.id}`);
+          $($quizBlank).appendTo($hiddenInput);
   }
 
 });

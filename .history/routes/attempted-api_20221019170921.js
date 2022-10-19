@@ -37,11 +37,9 @@ router.get('/:id', (req, res) => {
 /*
 API POST when submitting an attempted quiz
 */
-router.post('/', (req, res) => {
-  const bodyObj = req.body;
-  const quizObj = bodyObj.quizObj;
-  console.log("req body", bodyObj);
-  console.log("quiz id", quizObj);
+router.post('/',(req,res)=>{
+  const bodyObj=req.body;
+  console.log("req body",bodyOby);
   res.status(200).send(bodyObj)
 });
 

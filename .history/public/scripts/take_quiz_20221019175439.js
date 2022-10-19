@@ -80,7 +80,7 @@ $(document).ready(function () {
     //send the quiz using hidden input
     let $hiddenInput = `
       <div class="form-group">
-        <input type="hidden" name="quiz_id" value="${quiz.id}"/>
+        <input type="hidden" name="quizObj" value="${quiz.id}"/>
       <div class="form-group">
         `;
         const $quizQuestionText = $("#quiz-questions");

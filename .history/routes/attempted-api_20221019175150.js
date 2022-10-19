@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
   const bodyObj = req.body;
   const quizObj = bodyObj.quizObj;
   console.log("req body", bodyObj);
-  console.log("quiz id", quizObj);
+  console.log("quiz id", quizObj.id);
   res.status(200).send(bodyObj)
 });
 
