@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
 });
 
 /*
-API to get a quiz with all their results
+API to get 
 */
 router.get('/:id', (req, res) => {
   const resultId = req.params.id;

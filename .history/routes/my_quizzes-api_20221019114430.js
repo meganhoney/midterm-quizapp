@@ -10,7 +10,7 @@ const router = express.Router();
 const quiz = require('../db/queries/quiz');
 
 /*
-API to get all quizzes owned by the user
+API to 
 */
 router.get('/', (req, res) => {
   const userId = req.session.userID;
@@ -25,9 +25,6 @@ router.get('/', (req, res) => {
 
 });
 
-/*
-API to get a quiz with all their results
-*/
 router.get('/:id', (req, res) => {
   const resultId = req.params.id;
 
