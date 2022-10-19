@@ -1,8 +1,11 @@
 $(document).ready(function() {
 
+/*
+Ajax request to display name of logged in user in nav
+*/
   const displayUser = function() {
 
-    $.ajax("/api/users", {
+    $.ajax("/api/users/user", {
       method: "GET"
     })
     .then((response) => {
@@ -21,6 +24,9 @@ $(document).ready(function() {
 
   displayUser();
 
+/*
+Ajax request and functions to display all quizzes that are public
+*/
   const loadAllQuizzes = function() {
     $.ajax("/api/quizzes", {
       method: "GET"
@@ -36,7 +42,6 @@ $(document).ready(function() {
   loadAllQuizzes();
 
   const createQuizRow = function(quiz) {
-    // html markup for row in quiz table
     let $quiz = `
       <tr>
         <td>${quiz.id}</td>
@@ -54,4 +59,75 @@ $(document).ready(function() {
     }
   };
 
+/*
+Ajax request and functions to display all quizzes created by the logged in user
+*/
+  const loadMyQuizzes = function() {
+    $.ajax("/api/users/my_quizzes", {
+      method: "GET"
+    })
+    .then((response) => {
+      displayMyQuizzes(response);
+    })
+    .catch((err) => {
+      console.log("Error: ", err);
+    });
+  };
+
+  loadMyQuizzes();
+
+  const createMyQuizRow = function(quiz) {
+    let $myQuiz = `
+      <tr>
+        <td>${quiz.id}</td>
+        <td><a href="/${quiz.id}">${quiz.title}</a></td>
+        <td>${quiz.topic}</td>
+        <td>${quiz.number_of_attempts}</td>
+      </tr>
+    `;
+    return $myQuiz;
+  };
+
+  const displayMyQuizzes = function(myQuizzes) {
+    const $quiz = $("#my-quiz-table");
+    for (let key of Object.keys(myQuizzes)) {
+      $(createMyQuizRow(myQuizzes[key])).appendTo($quiz);
+    }
+  };
+
+/*
+Ajax request and functions to display all results of logged in user
+*/
+const loadMyResults = function() {
+    $.ajax("/api/users/my_quizzes", {
+      method: "GET"
+    })
+    .then((response) => {
+      displayMyResults(response);
+    })
+    .catch((err) => {
+      console.log("Error: ", err);
+    });
+  };
+
+  loadMyResults();
+
+  const createMyResultRow = function(result) {
+    let $result = `
+      <tr>
+        <td>${quiz.id}</td>
+        <td><a href="/${quiz.id}">${quiz.title}</a></td>
+        <td>${quiz.topic}</td>
+        <td>${quiz.number_of_attempts}</td>
+      </tr>
+    `;
+    return $result;
+  };
+
+  const displayMyResults = function(myQuizzes) {
+    const $quiz = $("#my-quiz-table");
+    for (let key of Object.keys(myQuizzes)) {
+      $(createMyQuizRow(myQuizzes[key])).appendTo($quiz);
+    }
+  };
 });

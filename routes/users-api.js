@@ -35,11 +35,11 @@ router.get('/user', (req, res) => {
 
 });
 
-router.get('/quizzes', (req, res) => {
+router.get('/my_quizzes', (req, res) => {
   const userId = req.session.userID;
   userQueries.getQuizzesByUserId(userId)
-    .then(quizzes => {
-      res.json({ quizzes })
+    .then(data => {
+      res.json(data)
     })
     .catch(err => {
       res
@@ -49,11 +49,11 @@ router.get('/quizzes', (req, res) => {
 
 });
 
-router.get('/results', (req, res) => {
+router.get('/my_results', (req, res) => {
   const userId = req.session.userID;
   userQueries.getResultsByUserId(userId)
-    .then(results => {
-      res.json({ results })
+    .then(data => {
+      res.json(data)
     })
     .catch(err => {
       res
