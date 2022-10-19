@@ -51,7 +51,7 @@ const rootRoute = require('./routes/root');
 app.use('/api/users', userApiRoutes);
 app.use('/api/quizzes', quizAPIRoutes);
 app.use('/api/attempted', attemptedAPIRoutes);
-app.use('/api/my_quizzes', myQuizzesAPIRoutes);
+app.use('/api/attempte', attemptedAPIRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/', rootRoute);
