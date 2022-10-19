@@ -216,7 +216,7 @@ ORDER by
 /*
 Get result by id
 */
-const getResultsByResultId=(resultId) =>{
+const getResultsByUserId=(userId) =>{
   return db.query(`
   SELECT
   results.*,
@@ -228,7 +228,8 @@ FROM
 WHERE
   results.id=1;
 
-  `, resultId)
+
+  `, [userId])
     .then(data => data.rows);
 }
 
@@ -265,6 +266,5 @@ module.exports = {
   postQuestions,
   postOptions,
   postAnswers,
-  getResultsByUserId,
-  getResultsByResultId
+  getResultsByUserId
 };

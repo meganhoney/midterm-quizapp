@@ -103,3 +103,5 @@ FROM
   JOIN quizzes ON results.quiz_id = quizzes.id
 WHERE
   results.id=1;
+LIMIT
+  10

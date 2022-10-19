@@ -266,5 +266,5 @@ module.exports = {
   postOptions,
   postAnswers,
   getResultsByUserId,
-  getResultsByResultId
+  getResult
 };

@@ -91,15 +91,4 @@ from
 ORDER by
   created_at DESC;
 
-/*
- Attempted Quiz by Id
- */
-SELECT
-  results.*,
-  quizzes.title AS title,
-  quizzes.topic AS topic
-FROM
-  results
-  JOIN quizzes ON results.quiz_id = quizzes.id
-WHERE
-  results.id=1;
+/8

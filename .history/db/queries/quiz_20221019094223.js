@@ -214,24 +214,7 @@ ORDER by
 }
 
 /*
-Get result by id
 */
-const getResultsByResultId=(resultId) =>{
-  return db.query(`
-  SELECT
-  results.*,
-  quizzes.title AS title,
-  quizzes.topic AS topic
-FROM
-  results
-  JOIN quizzes ON results.quiz_id = quizzes.id
-WHERE
-  results.id=1;
-
-  `, resultId)
-    .then(data => data.rows);
-}
-
 
 const attachOptions = async (questions) => {
   const newQuestions = await Promise.all(questions.map(async (question) => {
@@ -265,6 +248,5 @@ module.exports = {
   postQuestions,
   postOptions,
   postAnswers,
-  getResultsByUserId,
-  getResultsByResultId
+  getResultsByUserId
 };
