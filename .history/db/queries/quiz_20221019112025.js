@@ -36,33 +36,6 @@ const getQuizzesByUserId = (userId) => {
     });
 }
 
-const getQuizOnlyById = (quizId) => {
-  return db.query(`
-  SELECT
-    quizzes.id,
-    quizzes.user_id,
-    quizzes.title,
-    quizzes.topic,
-    quizzes.public,
-    quizzes.created_at,
-    COUNT (results) AS number_of_attempts
-  FROM
-    quizzes
-    JOIN results ON quizzes.id = results.quiz_id
-  WHERE
-    quizzes.id = $1
-    AND quizzes.completed_at IS NULL
-  GROUP BY
-    quizzes.id;
-
-
-`, [quizId])
-    .then(data => {
-      console.log("result", data.rows)
-      return data.rows
-    });
-}
-
 /*
 {
   user_id: '1',
@@ -313,7 +286,6 @@ module.exports = {
   getQuizzes,
   getQuizzesById,
   getQuizzesByUserId,
-  getQuizOnlyById,
   getQuestionsByQuizzesId,
   getOptionsByQuestionsId,
   getAnswersByQuestionsId,

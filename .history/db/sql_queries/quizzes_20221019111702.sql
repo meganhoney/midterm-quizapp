@@ -143,7 +143,9 @@ FROM
   quizzes
   JOIN results ON quizzes.id = results.quiz_id
 WHERE
-  quizzes.id = 2
+  quizzes.user_id = 2
   AND quizzes.completed_at IS NULL
 GROUP BY
-  quizzes.id;
+  quizzes.id
+ORDER BY
+  created_at DESC;

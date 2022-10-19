@@ -313,7 +313,7 @@ module.exports = {
   getQuizzes,
   getQuizzesById,
   getQuizzesByUserId,
-  getQuizOnlyById,
+  getQuizOnlyById
   getQuestionsByQuizzesId,
   getOptionsByQuestionsId,
   getAnswersByQuestionsId,

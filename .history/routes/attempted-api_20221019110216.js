@@ -11,7 +11,7 @@ const quiz = require('../db/queries/quiz');
 
 router.get('/', (req, res) => {
   const userId = req.session.userID;
-
+  console.log("userid",userid)
 
   quiz.getResultsByUserId(userId)
     .then(data => res.json(data))
@@ -24,6 +24,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const resultId = req.params.id;
+  console.log('resultid',resultId)
 
   quiz.getResultsByResultId(resultId)
     .then(data => res.json(data))

@@ -1,5 +1,5 @@
 /*
- * All routes for attempted quizzes are defined here
+ * All routes for quizzes created by the user are defined here
  * Since this file is loaded in server.js into /users,
  *   these routes are mounted onto /users
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
@@ -11,9 +11,9 @@ const quiz = require('../db/queries/quiz');
 
 router.get('/', (req, res) => {
   const userId = req.session.userID;
+  console.log("userid",userId)
 
-
-  quiz.getResultsByUserId(userId)
+  quiz.getQuizzesByUserId(userId)
     .then(data => res.json(data))
     .catch((err) => {
       res
@@ -24,6 +24,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const resultId = req.params.id;
+  console.log('resultid',resultId)
 
   quiz.getResultsByResultId(resultId)
     .then(data => res.json(data))

@@ -129,7 +129,7 @@ ORDER BY
   created_at DESC;
 
   /*
-Get a quiz by Id
+Get a quiz by Id, Quiz Only
  */
 SELECT
   quizzes.id,

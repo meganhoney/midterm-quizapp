@@ -36,7 +36,7 @@ const getQuizzesByUserId = (userId) => {
     });
 }
 
-const getQuizOnlyById = (quizId) => {
+const getQuizOnlyById = (userId) => {
   return db.query(`
   SELECT
     quizzes.id,
@@ -50,13 +50,14 @@ const getQuizOnlyById = (quizId) => {
     quizzes
     JOIN results ON quizzes.id = results.quiz_id
   WHERE
-    quizzes.id = $1
+    quizzes.user_id = $1
     AND quizzes.completed_at IS NULL
   GROUP BY
-    quizzes.id;
+    quizzes.id
+  ORDER BY
+    created_at DESC;
 
-
-`, [quizId])
+`, [userId])
     .then(data => {
       console.log("result", data.rows)
       return data.rows
@@ -313,7 +314,6 @@ module.exports = {
   getQuizzes,
   getQuizzesById,
   getQuizzesByUserId,
-  getQuizOnlyById,
   getQuestionsByQuizzesId,
   getOptionsByQuestionsId,
   getAnswersByQuestionsId,

@@ -128,10 +128,11 @@ GROUP BY
 ORDER BY
   created_at DESC;
 
-  /*
-Get a quiz by Id
+
+/*
+ All Quizzes created by the user with attempts details
  */
-SELECT
+  SELECT
   quizzes.id,
   quizzes.user_id,
   quizzes.title,
@@ -143,7 +144,10 @@ FROM
   quizzes
   JOIN results ON quizzes.id = results.quiz_id
 WHERE
-  quizzes.id = 2
+  quizzes.user_id = 2
   AND quizzes.completed_at IS NULL
 GROUP BY
-  quizzes.id;
+  quizzes.id
+ORDER BY
+  created_at DESC;
+

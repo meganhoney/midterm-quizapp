@@ -38,7 +38,7 @@ const getQuizzesByUserId = (userId) => {
 
 const getQuizOnlyById = (quizId) => {
   return db.query(`
-  SELECT
+    SELECT
     quizzes.id,
     quizzes.user_id,
     quizzes.title,
@@ -313,7 +313,6 @@ module.exports = {
   getQuizzes,
   getQuizzesById,
   getQuizzesByUserId,
-  getQuizOnlyById,
   getQuestionsByQuizzesId,
   getOptionsByQuestionsId,
   getAnswersByQuestionsId,
