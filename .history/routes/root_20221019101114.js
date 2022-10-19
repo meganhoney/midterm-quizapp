@@ -33,12 +33,12 @@ router.get('/my_quizzes/new', (req, res) => {
   res.render('new_quiz');
 });
 
-//Details of a quiz by id
+//Details of a quiz 
 router.get('/:id', (req, res) => {
   res.render('take_quiz');
 });
 
-//Login a user
+
 router.get('/user/:id', (req, res) => {
   const userId = req.params.id;
   req.session.userID = userId;

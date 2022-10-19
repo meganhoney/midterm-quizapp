@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
   res.render('take_quiz');
 });
 
-//Login a user
+
 router.get('/user/:id', (req, res) => {
   const userId = req.params.id;
   req.session.userID = userId;

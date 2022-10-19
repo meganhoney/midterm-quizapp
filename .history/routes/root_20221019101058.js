@@ -28,17 +28,16 @@ router.get('/attempted/:id', (req, res) => {
   res.render('score_quiz');
 });
 
-//Create a new quiz view
+//Create
 router.get('/my_quizzes/new', (req, res) => {
   res.render('new_quiz');
 });
 
-//Details of a quiz by id
 router.get('/:id', (req, res) => {
   res.render('take_quiz');
 });
 
-//Login a user
+
 router.get('/user/:id', (req, res) => {
   const userId = req.params.id;
   req.session.userID = userId;

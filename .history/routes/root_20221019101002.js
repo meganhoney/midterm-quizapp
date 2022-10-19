@@ -13,32 +13,28 @@ router.get('/', (req, res) => {
   res.render('index');
 });
 
-//All quizzes created by the user
+
 router.get('/my_quizzes', (req, res) => {
   res.render('my_quizzes');
 });
 
-//All quizzes attempted by the user
 router.get('/attempted', (req, res) => {
   res.render('my_results');
 });
 
-//Detail report of the quiz attempted
 router.get('/attempted/:id', (req, res) => {
   res.render('score_quiz');
 });
 
-//Create a new quiz view
 router.get('/my_quizzes/new', (req, res) => {
   res.render('new_quiz');
 });
 
-//Details of a quiz by id
 router.get('/:id', (req, res) => {
   res.render('take_quiz');
 });
 
-//Login a user
+
 router.get('/user/:id', (req, res) => {
   const userId = req.params.id;
   req.session.userID = userId;
