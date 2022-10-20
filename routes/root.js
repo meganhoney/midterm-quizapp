@@ -20,6 +20,14 @@ router.get('/my_quizzes', (req, res) => {
   res.render('my_quizzes');
 });
 
+/* DELETE/EDIT NAV LINKS */
+router.get('/user/quizzes', (req, res) => {
+  res.render('my_quizzes');
+});
+router.get('/user/results', (req, res) => {
+  res.render('my_results');
+});
+/****************************/
 
 //Create a new quiz view
 router.get('/my_quizzes/new', (req, res) => {
