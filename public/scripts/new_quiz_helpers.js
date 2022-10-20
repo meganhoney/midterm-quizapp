@@ -1,3 +1,19 @@
+// generate html markup to add additional question(s)
+const generateAdditionalQuestion = function(id){
+  const $newQuestion = `
+  <div class="d-flex mb-3">
+    <label for="question-${id}" class="form-label">Question ${id}</label>
+    <select class="form-select ml-2 create-question" id="question-${id}">
+      <option selected>Question Type</option>
+      <option value="1">Multiple Choice</option>
+      <option value="2">Fill in the blank</option>
+    </select>
+  </div>
+  <div id="question-input-${id}" class="mb-3 question-input"></div>
+  `;
+  return $newQuestion;
+}
+
 // generate html markup for multiple choice question creation
 const generateMultipleChoiceInput = function(id) {
   const $multipleChoice = `
@@ -33,7 +49,7 @@ const generateMultipleChoiceInput = function(id) {
   `
   return $multipleChoice;
 };
-
+// generate html markup for fill in the blank question creation
 const generateFillInTheBlankInput = function(id) {
   const $fillInTheBlank = `
   <div class="d-flex mb-3">

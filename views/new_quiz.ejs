@@ -58,6 +58,7 @@
           <input class="form-check-input" type="checkbox" role="switch" id="quiz-private">
           <label class="form-check-label" for="quiz-public">Private (Private quizzes are only visible to the creator & those with a link)</label>
         </div>
+      <div class="create-questions">
         <div class="d-flex mb-3">
           <label for="question-1" class="form-label">Question 1</label>
           <select class="form-select ml-2 create-question" id="question-1">
@@ -66,10 +67,10 @@
             <option value="2">Fill in the blank</option>
           </select>
         </div>
-        <div id="question-input-1" class="mb-3">
+        <div id="question-input-1" class="mb-3 question-input">
           <!-- question text and answer inputs added via jQuery in new_quiz.js -->
         </div>
-        <div class="d-flex mb-3 test">
+        <div class="d-flex mb-3">
           <label for="question-2" class="form-label">Question 2</label>
           <select class="form-select ml-2 create-question" id="question-2">
             <option>Question Type</option>
@@ -77,7 +78,7 @@
             <option value="2">Fill in the blank</option>
           </select>
         </div>
-        <div id="question-input-2" class="mb-3">
+        <div id="question-input-2" class="mb-3 question-input">
           <!-- question text and answer inputs added via jQuery in new_quiz.js -->
         </div>
         <div class="d-flex mb-3">
@@ -88,11 +89,15 @@
             <option value="2">Fill in the blank</option>
           </select>
         </div>
-        <div id="question-input-3" class="mb-3">
+        <div id="question-input-3" class="mb-3 question-input">
           <!-- question text and answer inputs added via jQuery in new_quiz.js -->
         </div>
+        <button type="button" class="btn btn-dark" id="add-question">+ Add a question</button>
+      </div> <!-- End of create questions div -->
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-dark btn-lg">Submit Quiz</button>
+        </div>
 
-        <button type="submit" class="btn btn-dark">Submit Quiz</button>
         <!--
           <label for="quiz-question-text" class="form-label">Question:</label>
           <input type="text" class="form-control mb-2" id="quiz-question-text" placeholder="Please type your question">
