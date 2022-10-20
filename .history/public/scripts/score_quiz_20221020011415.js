@@ -41,19 +41,18 @@ $(document).ready(function () {
     <input type="text" value='http://localhost:8080/attempted/${id}' id="myInput">
 
     <!-- The button used to copy the text -->
-    <button id="share_button">Share URL</button>
+    <button onclick="copyToClipboard()">Share URL</button>
     `;
 
     $sectionShare.append(shareText);
 
-    $("#share_button").click(() => {
-      const $temp = $("#myInput");
-      $temp.select();
-      document.execCommand("copy");
-      alert(`Copied URL: http://localhost:8080/attempted/${id}
-      `);
-    });
-
   }
 
+  function copyToClipboard(element) {
+    const $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($(element).text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+  }
 });

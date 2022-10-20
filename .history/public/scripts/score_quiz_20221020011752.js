@@ -46,14 +46,17 @@ $(document).ready(function () {
 
     $sectionShare.append(shareText);
 
-    $("#share_button").click(() => {
-      const $temp = $("#myInput");
-      $temp.select();
-      document.execCommand("copy");
-      alert(`Copied URL: http://localhost:8080/attempted/${id}
-      `);
+    $("#share_button").onClick(()=>{
+
     });
 
   }
 
+  function copyToClipboard(element) {
+    const $temp = $("#myInput");
+    $("body").append($temp);
+    $temp.val($(element).text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+  }
 });

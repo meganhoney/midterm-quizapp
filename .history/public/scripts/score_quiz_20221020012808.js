@@ -48,10 +48,8 @@ $(document).ready(function () {
 
     $("#share_button").click(() => {
       const $temp = $("#myInput");
-      $temp.select();
+      this.val($temp.text()).select();
       document.execCommand("copy");
-      alert(`Copied URL: http://localhost:8080/attempted/${id}
-      `);
     });
 
   }

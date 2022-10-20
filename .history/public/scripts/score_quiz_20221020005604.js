@@ -1,10 +1,8 @@
 $(document).ready(function () {
 
-  let getId = document.location.href.split("/");
-  let id = getId.pop();
-
   const loadResult = function () {
-
+    let getId = document.location.href.split("/");
+    let id = getId.pop();
     $.ajax(`/api/attempted/${id}`, {
       method: "GET"
     })
@@ -20,7 +18,7 @@ $(document).ready(function () {
 
   const displayResult = (result) => {
     const $sectionDetails = $('.details');
-    const $sectionShare = $('.share');
+    const $
     const text = `
     <h1>
     ${result.title}
@@ -33,27 +31,6 @@ $(document).ready(function () {
     <li>Last Date Attempt: ${result.created_at}</li>
     </ul>
     `;
-
     $sectionDetails.append(text);
-
-    const shareText = `
-    <!-- The text field -->
-    <input type="text" value='http://localhost:8080/attempted/${id}' id="myInput">
-
-    <!-- The button used to copy the text -->
-    <button id="share_button">Share URL</button>
-    `;
-
-    $sectionShare.append(shareText);
-
-    $("#share_button").click(() => {
-      const $temp = $("#myInput");
-      $temp.select();
-      document.execCommand("copy");
-      alert(`Copied URL: http://localhost:8080/attempted/${id}
-      `);
-    });
-
   }
-
 });

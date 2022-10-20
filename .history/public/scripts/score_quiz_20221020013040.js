@@ -50,8 +50,6 @@ $(document).ready(function () {
       const $temp = $("#myInput");
       $temp.select();
       document.execCommand("copy");
-      alert(`Copied URL: http://localhost:8080/attempted/${id}
-      `);
     });
 
   }
