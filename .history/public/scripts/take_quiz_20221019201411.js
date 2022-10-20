@@ -78,6 +78,7 @@ $(document).ready(function () {
       }
     }
     //send the quiz_id using hidden input
+    quizText = quiz.string
     let $hiddenInput = `
       <div class="form-group">
         <input type="hidden" name="quiz_id" value="${quiz.id}"/>

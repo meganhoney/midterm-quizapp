@@ -44,13 +44,13 @@ router.post('/', (req, res) => {
   let quizObj;
   console.log("req body", attemptedAnswers);
   console.log("quiz id", quizId);
-  console.log("userId", userId);
-  quiz.getQuizzesWithQuestionsOptionsAnswersById(quizId)
-    .then((quiz) => {
-      quizObj = quiz;
-      console.log("quizObj", quizObj)
-      res.send(attemptedAnswers);
-    })
+  console.log("userId",userId);
+quiz.getQuizzesWithQuestionsOptionsAnswersById(quizId)
+.then((quiz)=>{
+  quizObj=quiz;
+  console.log("quizObj",quizObj)
+  res.send(attemptedAnswers);
+})
 
 });
 

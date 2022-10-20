@@ -348,7 +348,7 @@ const getQuizzesWithQuestionsOptionsAnswersById=(quizId) =>{
     })
     .then((questions) => {
       quizObj.questions = questions;
-     // console.log("quizdata",quizObj);
+      console.log("quizdata",quizObj);
       return quizObj;
     });
 }

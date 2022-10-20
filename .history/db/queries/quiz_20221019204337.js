@@ -335,7 +335,7 @@ const attachResults = async (quizzes) => {
 
 const getQuizzesWithQuestionsOptionsAnswersById=(quizId) =>{
   let quizObj;
-  return getQuizzesById(quizId)
+  getQuizzesById(quizId)
     .then((quizzes) => {
       quizObj = quizzes[0];
       return getQuestionsByQuizzesId(quizId);
@@ -348,7 +348,7 @@ const getQuizzesWithQuestionsOptionsAnswersById=(quizId) =>{
     })
     .then((questions) => {
       quizObj.questions = questions;
-     // console.log("quizdata",quizObj);
+      console.log("quizdata",quizObj);
       return quizObj;
     });
 }

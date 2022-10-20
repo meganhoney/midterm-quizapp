@@ -335,20 +335,19 @@ const attachResults = async (quizzes) => {
 
 const getQuizzesWithQuestionsOptionsAnswersById=(quizId) =>{
   let quizObj;
-  return getQuizzesById(quizId)
+  getQuizzesById(quizId)
     .then((quizzes) => {
       quizObj = quizzes[0];
-      return getQuestionsByQuizzesId(quizId);
+      return quiz.getQuestionsByQuizzesId(quizId);
     })
     .then((questions) => {
-      return attachOptions(questions);
+      return quiz.attachOptions(questions);
     })
     .then((questions) => {
-      return attachAnswers(questions);
+      return quiz.attachAnswers(questions);
     })
     .then((questions) => {
       quizObj.questions = questions;
-     // console.log("quizdata",quizObj);
       return quizObj;
     });
 }
@@ -373,5 +372,5 @@ module.exports = {
   getResultsByUserId,
   getResultsByResultId,
   getResultsByQuizId,
-  getQuizzesWithQuestionsOptionsAnswersById
+  g
 };

@@ -333,24 +333,8 @@ const attachResults = async (quizzes) => {
   return newQuizzes;
 }
 
-const getQuizzesWithQuestionsOptionsAnswersById=(quizId) =>{
-  let quizObj;
-  return getQuizzesById(quizId)
-    .then((quizzes) => {
-      quizObj = quizzes[0];
-      return getQuestionsByQuizzesId(quizId);
-    })
-    .then((questions) => {
-      return attachOptions(questions);
-    })
-    .then((questions) => {
-      return attachAnswers(questions);
-    })
-    .then((questions) => {
-      quizObj.questions = questions;
-     // console.log("quizdata",quizObj);
-      return quizObj;
-    });
+const getQuizzesWithQuestionsOptionsAnswersById=(quizId) ={
+  
 }
 
 
@@ -372,6 +356,5 @@ module.exports = {
   postAnswers,
   getResultsByUserId,
   getResultsByResultId,
-  getResultsByQuizId,
-  getQuizzesWithQuestionsOptionsAnswersById
+  getResultsByQuizId
 };

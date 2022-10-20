@@ -78,9 +78,11 @@ $(document).ready(function () {
       }
     }
     //send the quiz_id using hidden input
+    const quizText = quiz.stringify();
+    console.log(quizText);
     let $hiddenInput = `
       <div class="form-group">
-        <input type="hidden" name="quiz_id" value="${quiz.id}"/>
+        <input type="hidden" name="quizObj" value="${quizText}"/>
       <div class="form-group">
         `;
     const $quizQuestionText = $("#quiz-questions");

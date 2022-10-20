@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
   quiz.getQuizzesWithQuestionsOptionsAnswersById(quizId)
     .then((quiz) => {
       quizObj = quiz;
-      console.log("quizObj", quizObj)
+      console.log("quizObj", quiz)
       res.send(attemptedAnswers);
     })
 

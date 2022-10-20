@@ -77,14 +77,7 @@ $(document).ready(function () {
 
       }
     }
-    //send the quiz_id using hidden input
-    let $hiddenInput = `
-      <div class="form-group">
-        <input type="hidden" name="quiz_id" value="${quiz.id}"/>
-      <div class="form-group">
-        `;
-    const $quizQuestionText = $("#quiz-questions");
-    $($hiddenInput).appendTo($quizQuestionText);
+ 
   }
 
 });

@@ -38,20 +38,13 @@ router.get('/:id', (req, res) => {
 API POST when submitting an attempted quiz
 */
 router.post('/', (req, res) => {
-  const attemptedAnswers = req.body;
-  const quizId = attemptedAnswers.quiz_id;
+  const attanswersObj = req.body;
+  const quizId = bodyObj.quiz_id;
   const userId = req.session.userID;
-  let quizObj;
-  console.log("req body", attemptedAnswers);
+  console.log("req body", answersObj);
   console.log("quiz id", quizId);
-  console.log("userId", userId);
-  quiz.getQuizzesWithQuestionsOptionsAnswersById(quizId)
-    .then((quiz) => {
-      quizObj = quiz;
-      console.log("quizObj", quizObj)
-      res.send(attemptedAnswers);
-    })
-
+  console.log("userId",userId);
+  res.status(200).send(bodyObj)
 });
 
 module.exports = router;
