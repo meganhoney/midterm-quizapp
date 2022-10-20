@@ -312,7 +312,7 @@ const getResultsByResultId = (resultId) => {
     results.id = $1;
 
   `, [resultId])
-    .then(data => data.rows[0]);
+    .then(data => data.rows[]);
 }
 
 /*
