@@ -52,7 +52,7 @@ router.post('/score', (req, res) => {
     }).then(data => {
       res.redirect(`/attempted/${data.id}`);
     })
-
+    
 })
 
 
