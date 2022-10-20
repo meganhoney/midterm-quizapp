@@ -104,7 +104,6 @@ SELECT
 FROM
   results
   JOIN quizzes ON results.quiz_id = quizzes.id
-  JOIN users ON results.user_id = users.id
 WHERE
   results.id = 1;
 

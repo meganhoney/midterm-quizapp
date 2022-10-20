@@ -100,7 +100,7 @@ SELECT
   results.*,
   quizzes.title AS title,
   quizzes.topic AS topic,
-  users.name AS name
+  users.name AS name,
 FROM
   results
   JOIN quizzes ON results.quiz_id = quizzes.id

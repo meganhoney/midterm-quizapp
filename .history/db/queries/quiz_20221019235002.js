@@ -299,17 +299,17 @@ Get result by id
 */
 const getResultsByResultId = (resultId) => {
   return db.query(`
-    SELECT
-    results.*,
-    quizzes.title AS title,
-    quizzes.topic AS topic,
-    users.name AS name
-  FROM
-    results
-    JOIN quizzes ON results.quiz_id = quizzes.id
-    JOIN users ON results.user_id = users.id
-  WHERE
-    results.id = $1;
+  SELECT
+  results.*,
+  quizzes.title AS title,
+  quizzes.topic AS topic,
+  users.name AS name
+FROM
+  results
+  JOIN quizzes ON results.quiz_id = quizzes.id
+  JOIN users ON results.user_id = users.id
+WHERE
+  results.id = $1;
 
   `, [resultId])
     .then(data => data.rows);
