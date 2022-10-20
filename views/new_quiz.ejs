@@ -31,7 +31,7 @@
   <main>
     <section class="container new-quiz">
       <h2>Create Quiz</h2>
-      <form id="new-quiz-form">
+      <form action="/" method="POST"id="new-quiz-form">
         <div class="d-flex mb-3">
           <label for="quiz-title" class="form-label">Title:</label>
           <input type="text" class="form-control ml-2" id="quiz-title" placeholder="What would you like to call your quiz?">
@@ -92,7 +92,7 @@
           <!-- question text and answer inputs added via jQuery in new_quiz.js -->
         </div>
 
-
+        <button type="submit" class="btn btn-dark">Submit Quiz</button>
         <!--
           <label for="quiz-question-text" class="form-label">Question:</label>
           <input type="text" class="form-control mb-2" id="quiz-question-text" placeholder="Please type your question">
@@ -125,6 +125,17 @@
           </div>
 -->
 
+<!--
+        <div class="d-flex mb-3">
+          <label for="qID-text" class="form-label">Question:</label>
+          <input type="text" class="form-control ml-2" id="qID-text" placeholder="Type question text here then use button to insert blank space">
+          <button type="button" class="btn btn-sm btn-outline-dark text-nowrap insert-blank">Insert blank space</button>
+        </div>
+        <div class="d-flex mb-3">
+          <label for="qID-answer" class="form-label">Answer:</label>
+          <input type="text" class="form-control ml-2" id="QUESTIONB" placeholder="Type the word that fills in the blank">
+      </div>
+    -->
 
       </form>
     </section>
