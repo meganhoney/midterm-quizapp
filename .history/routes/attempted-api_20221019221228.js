@@ -52,14 +52,11 @@ const validateAnswers = (quiz, answers) => {
       }
     } else if (each.answers.length === answers[each.id].length) {
       let correct = true
-
-      for (const actual of each.answers) {
-        console.log(actual.answer, " vs ", answers[each.id]);
-        if (!answers[each.id].include(actual.answer).toUpperCase().trim()) {
+      for (const answer of answers[each.id]) {
+        if (!each.answers.include(answer)) {
           correct = false;
         }
       }
-
       if (correct) {
         correctAnswers++;
       }
@@ -67,7 +64,7 @@ const validateAnswers = (quiz, answers) => {
   }
   resultObj.correctAnswers = correctAnswers;
   resultObj.totalQuestion = quiz.questions.length;
-  resultObj.score = Math.round(correctAnswers / quiz.questions.length * 100);
+  resultObj.score = Math.round(correctAnswers / quiz.questions.length*100);
   return resultObj;
 }
 

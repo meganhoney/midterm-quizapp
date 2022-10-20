@@ -52,14 +52,12 @@ const validateAnswers = (quiz, answers) => {
       }
     } else if (each.answers.length === answers[each.id].length) {
       let correct = true
-
-      for (const actual of each.answers) {
-        console.log(actual.answer, " vs ", answers[each.id]);
-        if (!answers[each.id].include(actual.answer).toUpperCase().trim()) {
+      for (const answer of answers[each.id]) {
+        for(const actual)
+        if (!each.answers.include(answer)) {
           correct = false;
         }
       }
-
       if (correct) {
         correctAnswers++;
       }

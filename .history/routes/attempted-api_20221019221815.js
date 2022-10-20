@@ -53,13 +53,10 @@ const validateAnswers = (quiz, answers) => {
     } else if (each.answers.length === answers[each.id].length) {
       let correct = true
 
-      for (const actual of each.answers) {
-        console.log(actual.answer, " vs ", answers[each.id]);
-        if (!answers[each.id].include(actual.answer).toUpperCase().trim()) {
-          correct = false;
+        for(const actual of each.answers) {
+          if()
         }
-      }
-
+  
       if (correct) {
         correctAnswers++;
       }
