@@ -78,7 +78,7 @@ $(document).ready(function () {
         // Copy the text inside the text field
         navigator.clipboard.writeText(hrefValue);
         console.log('hrefValue : ' + hrefValue);
-        alert("Link copied: " + hrefValue);
+        
       });
 
     }

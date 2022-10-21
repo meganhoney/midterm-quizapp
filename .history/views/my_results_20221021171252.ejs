@@ -18,19 +18,43 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/take_quiz.css" />
 
   <!-- Scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
-  <script defer src="/scripts/score_quiz.js"></script>
 </head>
 
 <body>
   <%- include("partials/_header") %>
   <main>
-    <section class="details container">
+    <section>
+      <h1>Results</h1>
     </section>
-    <section class="share container">
+    <section id="my-results" class="container">
+      <table id="my-results-table">
+        <tr>
+          <th>Quiz</th>
+          <th>Created At</th>
+          <th>Score</th>
+        </tr>
+        <!-- Rest of table completed with jQuery in app.js -->
+      </table>
+
+      <div class="table-responsive-xl">
+        <table class="table  table-striped " id="my-results-table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Id</th>
+              <th>Quiz</th>
+              <th>Created At</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody id="quiz-tbody">
+          </tbody>
+        </table>
+      </div>
     </section>
   </main>
 </body>

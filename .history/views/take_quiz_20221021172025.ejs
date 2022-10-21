@@ -26,29 +26,25 @@
   <!-- Scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
+  <script defer src="/scripts/take_quiz.js"></script>
 </head>
 
 <body>
   <%- include("partials/_header") %>
-    <main>
-      <section>
-        <h1>Results</h1>
-      </section>
-      <section id="my-results" class="container">
-        <div class="table-responsive-xl">
-          <table class="table  table-striped " id="my-results-table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Quiz</th>
-                <th>Attempt Date</th>
-                <th>Score</th>
-              </tr>
-            </thead>
-            <tbody id="my-results-tbody">
-              <!-- Rest of table completed with jQuery in app.js -->
-            </tbody>
-          </table>
-        </div>
+    <main class="quiz">
+      <section class="container">
+        <h1>Take Quiz</h1>
+        <form id="take-quiz" class="take-quiz" action="/score" method="POST">
+          <section id="quiz-title">
+            <!-- title inserted in app.js -->
+          </section>
+          <section id="quiz-questions">
+            <!-- quiz inserted in app.js -->
+          </section>
+          <section id="submit-quiz">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </section>
+        </form>
       </section>
     </main>
 </body>
