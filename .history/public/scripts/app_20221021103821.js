@@ -113,12 +113,11 @@ const loadMyResults = function() {
   loadMyResults();
 
   const createMyResultRow = function(result) {
-    const theDate = new Date(result.created_at);
-    const dateString = theDate.toGMTString();
+    
     let $result = `
       <tr>
         <td>${result.quiz}</td>
-        <td>${dateString}</td>
+        <td>${new Date(result.created_at)}</td>
         <td><a href="/attempted/${result.quiz_id}">${result.score}%</a></td>
       </tr>
     `;
