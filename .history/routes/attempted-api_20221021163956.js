@@ -61,9 +61,9 @@ router.post('/', (req, res) => {
       quizObj = result;
       return quiz.updateNumberOfAttemptsById(quizId);
     })
-    .then(() => {
-      res.json(quizObj);
-    })
+  then(() => {
+    res.json(quizObj);
+  })
 
 });
 

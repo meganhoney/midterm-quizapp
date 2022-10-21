@@ -49,20 +49,20 @@ router.post('/score', (req, res) => {
   let quizObj;
 
   quiz.getQuizzesWithQuestionsOptionsAnswersById(quizId)
-    .then((quizData) => {
-      quizObj = quizData;
-      const result = helper.validateAnswers(quizObj, attemptedAnswers);
-      result.quizId = quizId;
-      result.userId = userId;
-      return quiz.postResults(result);
-    })
-    .then((result) => {
-      quizObj = result;
-      return quiz.updateNumberOfAttemptsById(quizId);
-    })
-    .then(() => {
-      res.redirect("/attempted/" + quizId);
-    })
+  .then((quizData) => {
+    quizObj = quizData;
+    const result = helper.validateAnswers(quizObj, attemptedAnswers);
+    result.quizId = quizId;
+    result.userId = userId;
+    return quiz.postResults(result);
+  })
+  .then((result) => {
+    quizObj = result;
+    return quiz.updateNumberOfAttemptsById(quizId);
+  })
+then(() => {
+  res.json(quizObj);
+})
 
 })
 

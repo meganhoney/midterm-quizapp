@@ -351,7 +351,7 @@ WHERE
   id = $1 RETURNING *;
 
   `, [quizId])
-    .then(data => data.rows[0]);
+    .then(data => data.rows);
 
 }
 
@@ -423,6 +423,5 @@ module.exports = {
   getResultsByUserId,
   getResultsByResultId,
   getResultsByQuizId,
-  getQuizzesWithQuestionsOptionsAnswersById,
-  updateNumberOfAttemptsById
+  getQuizzesWithQuestionsOptionsAnswersById
 };

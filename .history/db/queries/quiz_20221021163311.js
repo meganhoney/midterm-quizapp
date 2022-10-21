@@ -341,17 +341,17 @@ ORDER BY
 }
 
 
-const updateNumberOfAttemptsById = (quizId) => {
+const updateNumberOfAttemptsById=(quizId)=>{
   return db.query(`
   UPDATE
   quizzes
 SET
   number_of_attempts = number_of_attempts + 1
 WHERE
-  id = $1 RETURNING *;
+  id = 1;
 
   `, [quizId])
-    .then(data => data.rows[0]);
+    .then(data => data.rows);
 
 }
 
@@ -423,6 +423,5 @@ module.exports = {
   getResultsByUserId,
   getResultsByResultId,
   getResultsByQuizId,
-  getQuizzesWithQuestionsOptionsAnswersById,
-  updateNumberOfAttemptsById
+  getQuizzesWithQuestionsOptionsAnswersById
 };

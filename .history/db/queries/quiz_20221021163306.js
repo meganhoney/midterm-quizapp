@@ -341,17 +341,27 @@ ORDER BY
 }
 
 
-const updateNumberOfAttemptsById = (quizId) => {
+const updateNumberOfAttemptsById=(quizId)=>{
   return db.query(`
-  UPDATE
-  quizzes
-SET
-  number_of_attempts = number_of_attempts + 1
+  SELECT
+  results.id,
+  results.user_id,
+  results.quiz_id,
+  to_char(results.created_at, 'MM/DD/YYYY HH:MM PM') As created_at,
+  results.score,
+  results.correct_answers,
+  results.total_questions,
+  users.name
+FROM
+  results
+  JOIN users ON results.user_id = users.id
 WHERE
-  id = $1 RETURNING *;
+  results.quiz_id = $1
+ORDER BY
+  created_at DESC;
 
   `, [quizId])
-    .then(data => data.rows[0]);
+    .then(data => data.rows);
 
 }
 
@@ -423,6 +433,5 @@ module.exports = {
   getResultsByUserId,
   getResultsByResultId,
   getResultsByQuizId,
-  getQuizzesWithQuestionsOptionsAnswersById,
-  updateNumberOfAttemptsById
+  getQuizzesWithQuestionsOptionsAnswersById
 };

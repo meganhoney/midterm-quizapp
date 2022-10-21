@@ -45,6 +45,7 @@ router.post('/', (req, res) => {
   const attemptedAnswers = req.body;
   const quizId = attemptedAnswers.quiz_id;
   const userId = req.session.userID;
+  let result;
   let quizObj;
   //console.log("req body", attemptedAnswers);
   //console.log("quiz id", quizId);
@@ -57,12 +58,13 @@ router.post('/', (req, res) => {
       result.userId = userId;
       return quiz.postResults(result);
     })
-    .then((result) => {
-      quizObj = result;
-      return quiz.updateNumberOfAttemptsById(quizId);
+    .then((result)=>{
+      result
+
     })
-    .then(() => {
-      res.json(quizObj);
+
+    then(data => {
+      res.json(data);
     })
 
 });

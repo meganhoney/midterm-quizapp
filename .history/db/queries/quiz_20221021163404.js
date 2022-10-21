@@ -423,6 +423,5 @@ module.exports = {
   getResultsByUserId,
   getResultsByResultId,
   getResultsByQuizId,
-  getQuizzesWithQuestionsOptionsAnswersById,
-  updateNumberOfAttemptsById
+  getQuizzesWithQuestionsOptionsAnswersById
 };

@@ -340,19 +340,8 @@ ORDER BY
     .then(data => data.rows);
 }
 
-
-const updateNumberOfAttemptsById = (quizId) => {
-  return db.query(`
-  UPDATE
-  quizzes
-SET
-  number_of_attempts = number_of_attempts + 1
-WHERE
-  id = $1 RETURNING *;
-
-  `, [quizId])
-    .then(data => data.rows[0]);
-
+const updateNumberOfAttemptsById=(quizId)=>{
+  
 }
 
 const attachOptions = async (questions) => {
@@ -423,6 +412,5 @@ module.exports = {
   getResultsByUserId,
   getResultsByResultId,
   getResultsByQuizId,
-  getQuizzesWithQuestionsOptionsAnswersById,
-  updateNumberOfAttemptsById
+  getQuizzesWithQuestionsOptionsAnswersById
 };

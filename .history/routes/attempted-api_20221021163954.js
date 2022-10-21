@@ -57,11 +57,11 @@ router.post('/', (req, res) => {
       result.userId = userId;
       return quiz.postResults(result);
     })
-    .then((result) => {
+    .then((result)=>{
       quizObj = result;
       return quiz.updateNumberOfAttemptsById(quizId);
     })
-    .then(() => {
+    then(()=> {
       res.json(quizObj);
     })
 

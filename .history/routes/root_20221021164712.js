@@ -60,9 +60,9 @@ router.post('/score', (req, res) => {
       quizObj = result;
       return quiz.updateNumberOfAttemptsById(quizId);
     })
-    .then(() => {
-      res.redirect("/attempted/" + quizId);
-    })
+  then(() => {
+    res.redirect("/attempt/")
+  })
 
 })
 

@@ -188,12 +188,5 @@ select
 FROM
   RESULTS;
 
-/*
- Update quiz
- */
-UPDATE
-  quizzes
-SET
-  number_of_attempts = number_of_attempts + 1
-WHERE
-  id = 2 RETURNING *;
+
+/**/
