@@ -40,7 +40,7 @@ const generateMultipleChoiceInput = function(id) {
     </div>
     <div class="d-flex mb-3 mt-3">
         <label for="q${id}-answer" class="form-label">Answer:</label>
-        <input type="text" class="form-control ml-2" id="q${id}-answer" name="answer${id}" placeholder="Type the correct answer">
+        <input type="text" class="form-control ml-2" id="q${id}-answer" name="answer${id - 1}" placeholder="Type the correct answer">
     </div>
   `
   return $multipleChoice;
@@ -55,7 +55,7 @@ const generateFillInTheBlankInput = function(id) {
         </div>
         <div class="d-flex mb-3">
           <label for="q${id}-answer" class="form-label">Answer:</label>
-          <input type="text" class="form-control ml-2" id="q${id}-answer" name="answer${id}" placeholder="Type the word that fills in the blank">
+          <input type="text" class="form-control ml-2" id="q${id}-answer" name="answer${id-1}" placeholder="Type the word that fills in the blank">
       </div>
   `;
 
@@ -68,6 +68,6 @@ const getAllOptions = function(id){
   $(`.option-text-${id}`).each(function () {
     options.push($(this).val());
   });
-  
+
   return options;
 };

@@ -7,9 +7,10 @@ $(document).ready(function() {
   $("#add-question").click(function() {
     // count number of inputs currently on page
     let $id = $(".question-input").length;
+    let $optArr = $id - 1;
     // add options from previous question to formData
     if(getAllOptions($id).length) {
-      formData["options"+$id] = getAllOptions($id);
+      formData["options"+$optArr] = getAllOptions($id);
     }
     // max 20 questions
     if($id <= 20) {
@@ -51,7 +52,7 @@ $(document).ready(function() {
     event.preventDefault();
     // get options for last question
     const numOfQuestions = $(".question-input").length;
-    formData["options"+numOfQuestions] = getAllOptions(numOfQuestions);
+    formData["options"+(numOfQuestions - 1)] = getAllOptions(numOfQuestions);
     // Add title and topic to form object
     formData.title = $("#quiz-title").val();
     formData.topic = $("#quiz-topic").val();
@@ -83,7 +84,7 @@ $(document).ready(function() {
     //get all answers
     const fillInTheBlankAnswers = $(this).serializeArray();
     for(obj of fillInTheBlankAnswers) {
-      formData[obj.name] = obj.value;
+      formData[obj.name] = [obj.value];
     }
     console.log(formData);
 
