@@ -165,7 +165,7 @@ FROM
   results
   JOIN users ON results.user_id = users.id
 WHERE
-  results.quiz_id = 2
+  results.quiz_id = 1
 ORDER BY
   created_at DESC;
 

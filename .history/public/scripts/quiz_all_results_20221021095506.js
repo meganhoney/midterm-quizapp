@@ -20,9 +20,8 @@ $(document).ready(function () {
 
   const displayResult = (quizResults) => {
     console.log(quizResults)
-    const theDate = new Date(quizResults.created_at);
-    const dateString = theDate.toGMTString();
     const $sectionDetails = $('.details');
+    const $sectionShare = $('.share');
     const text = `
     <h1>
     ${quizResults.title}
@@ -31,7 +30,7 @@ $(document).ready(function () {
     <li>Creator: ${quizResults.name}</li>
     <li>Topic: ${quizResults.topic}</li>
     <li>Total Attempts: ${quizResults.number_of_attempts}</li>
-    <li>Date Created: ${dateString}</li>
+    <li>Date Created: ${quizResults.created_at}</li>
     </ul>
 
     <div class="table-responsive-xl">
@@ -51,14 +50,11 @@ $(document).ready(function () {
       </table>
     </div>
 
+    <!-- The text field -->
+    <input type="text" value='http://localhost:8080/my_quizzes/${id}' id="myInput">
 
-
-    <div class="input-group">
-      <input type="text" class="form-control" value='http://localhost:8080/my_quizzes/${id}' id="myInput">
-      <div class="input-group-append">
-        <button type="button" class="btn btn-outline-secondary" id="share_button">Share</button>
-      </div>
-    </div>
+    <!-- The button used to copy the text -->
+    <button id="share_button">Share URL</button>
 
     `;
 
@@ -72,7 +68,7 @@ $(document).ready(function () {
     let counter = 1;
     let html = "";
     for (const each of results) {
-      const theDate = new Date(each.created_at);
+      const theDate = new Date(quiz.created_at);
       const dateString = theDate.toGMTString();
 
       html += `
@@ -82,7 +78,7 @@ $(document).ready(function () {
         <td>${each.correct_answers}</td>
         <td>${each.total_questions}</td>
         <td>${each.score}</td>
-        <td>${dateString}</td>
+        <td>${each.created_at}</td>
       </tr>
 
       `;

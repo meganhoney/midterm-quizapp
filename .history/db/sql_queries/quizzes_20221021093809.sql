@@ -156,10 +156,7 @@ SELECT
   results.id,
   results.user_id,
   results.quiz_id,
-  to_char(results.created_at, 'MM/DD/YYYY HH:MM PM') As created_at,
-  results.score,
-  results.correct_answers,
-  results.total_questions,
+  to_char(quizzes.created_at, 'MM/DD/YYYY HH:MM PM') As created_at,
   users.name
 FROM
   results

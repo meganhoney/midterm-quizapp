@@ -51,14 +51,28 @@ $(document).ready(function () {
       </table>
     </div>
 
+    <!-- The text field -->
+    <input type="text" value='http://localhost:8080/my_quizzes/${id}' id="myInput">
 
+    <!-- The button used to copy the text -->
+    <button id="share_button">Share URL</button>
 
-    <div class="input-group">
-      <input type="text" class="form-control" value='http://localhost:8080/my_quizzes/${id}' id="myInput">
-      <div class="input-group-append">
-        <button type="button" class="btn btn-outline-secondary" id="share_button">Share</button>
+    div class="input-group">
+    <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+    <div class="input-group-append">
+      <button type="button" class="btn btn-outline-secondary">Action</button>
+      <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div role="separator" class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
       </div>
     </div>
+  </div>
 
     `;
 

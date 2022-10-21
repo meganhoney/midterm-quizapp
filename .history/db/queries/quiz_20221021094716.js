@@ -320,6 +320,7 @@ Get result by id
 const getResultsByQuizId = (quizId) => {
   return db.query(`
   SELECT
+  SELECT
   results.id,
   results.user_id,
   results.quiz_id,
@@ -332,7 +333,7 @@ FROM
   results
   JOIN users ON results.user_id = users.id
 WHERE
-  results.quiz_id = $1
+  results.quiz_id = 1
 ORDER BY
   created_at DESC;
 

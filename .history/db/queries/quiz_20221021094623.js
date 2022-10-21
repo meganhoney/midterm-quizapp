@@ -320,21 +320,7 @@ Get result by id
 const getResultsByQuizId = (quizId) => {
   return db.query(`
   SELECT
-  results.id,
-  results.user_id,
-  results.quiz_id,
-  to_char(results.created_at, 'MM/DD/YYYY HH:MM PM') As created_at,
-  results.score,
-  results.correct_answers,
-  results.total_questions,
-  users.name
-FROM
-  results
-  JOIN users ON results.user_id = users.id
-WHERE
-  results.quiz_id = $1
-ORDER BY
-  created_at DESC;
+  etResultsByQuizId
 
   `, [quizId])
     .then(data => data.rows);

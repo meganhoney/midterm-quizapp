@@ -159,7 +159,7 @@ SELECT
   to_char(results.created_at, 'MM/DD/YYYY HH:MM PM') As created_at,
   results.score,
   results.correct_answers,
-  results.total_questions,
+  results.
   users.name
 FROM
   results

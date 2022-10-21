@@ -51,7 +51,11 @@ $(document).ready(function () {
       </table>
     </div>
 
+    <!-- The text field -->
+    <input type="text" value='http://localhost:8080/my_quizzes/${id}' id="myInput">
 
+    <!-- The button used to copy the text -->
+    <button id="share_button">Share URL</button>
 
     <div class="input-group">
       <input type="text" class="form-control" value='http://localhost:8080/my_quizzes/${id}' id="myInput">

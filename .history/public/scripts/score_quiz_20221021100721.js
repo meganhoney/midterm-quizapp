@@ -37,10 +37,11 @@ $(document).ready(function () {
     $sectionDetails.append(text);
 
     const shareText = `
-
+    <!-- The text field -->
+    <input type="text" value='http://localhost:8080/attempted/${id}' id="myInput">
 
     <div class="input-group">
-      <input type="text" class="form-control" value='http://localhost:8080/attempted/${id}' id="myInput">
+      <input type="text" class="form-control" value='http://localhost:8080/my_quizzes/${id}' id="myInput">
       <div class="input-group-append">
         <button type="button" class="btn btn-outline-secondary" id="share_button">Share</button>
       </div>
