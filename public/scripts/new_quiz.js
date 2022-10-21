@@ -12,6 +12,7 @@ $(document).ready(function() {
 
   const createQuestionInputs = function() {
     $(".create-question").change(function() {
+      console.log($(this));
     const $id = this.id.split("-").pop();
     const $val = $(this).val();
     const $input = $(`#question-input-${$id}`);
@@ -35,4 +36,24 @@ $(document).ready(function() {
   });
   };
 
+  createQuestionInputs();
+
+  $("#new-quiz-form").submit(function(event){
+    const formData = {
+      user_id: 2,
+      title: $("#quiz-title").val(),
+      topic: $("#quiz-topic").val(),
+      public: $("#quiz-public").val()
+    };
+    console.log(formData);
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:8080/api/quizzes",
+      data: formData,
+    }).done(function (data) {
+      console.log(data);
+    });
+
+    event.preventDefault();
+  });
 });
