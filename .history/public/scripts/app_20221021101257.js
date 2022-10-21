@@ -117,7 +117,7 @@ const loadMyResults = function() {
       <tr>
         <td>${result.quiz}</td>
         <td>${new Date(result.created_at)}</td>
-        <td><a href="/attempted/${result.quiz_id}">${result.score}%</a></td>
+        <td><a href=${${result.score}%</td>
       </tr>
     `;
     return $result;

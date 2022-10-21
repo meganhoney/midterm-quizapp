@@ -41,7 +41,7 @@ $(document).ready(function () {
     const shareText = `
 
 
-    <div class="input-group share">
+    <div class="input-group">
       <input type="text" class="form-control" value='http://localhost:8080/attempted/${id}' id="myInput">
       <div class="input-group-append">
         <button type="button" class="btn btn-outline-secondary" id="share_button">Share</button>

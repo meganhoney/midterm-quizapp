@@ -33,7 +33,7 @@ const getQuizzesByUserId = (user_id) => {
 
 const getResultsByUserId = (user_id) => {
   return db.query(`
-  SELECT quizzes.title as quiz, results.created_at, results.score, results.quiz_id
+  SELECT results, quizzes.title as quiz, results.created_at, results.score
   FROM results
   JOIN quizzes ON quizzes.id = quiz_id WHERE results.user_id = $1;
   `, [user_id])

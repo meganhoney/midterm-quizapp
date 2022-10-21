@@ -28,11 +28,11 @@ $(document).ready(function () {
     ${result.title}
     </h1>
     <ul>
-      <li>Name: ${result.name}</li>
-      <li>Correct Answers: ${result.correct_answers}</li>
-      <li>Total Questions: ${result.total_questions}</li>
-      <li>Score: ${result.score}%</li>
-      <li>Last Date Attempt: ${dateString}</li>
+    <li>Name: ${result.name}</li>
+    <li>Correct Answers: ${result.correct_answers}</li>
+    <li>Total Questions: ${result.total_questions}</li>
+    <li>Score: ${result.score}%</li>
+    <li>Last Date Attempt: ${dateString}</li>
     </ul>
     `;
 
@@ -41,7 +41,7 @@ $(document).ready(function () {
     const shareText = `
 
 
-    <div class="input-group share">
+    <div class="input-group">
       <input type="text" class="form-control" value='http://localhost:8080/attempted/${id}' id="myInput">
       <div class="input-group-append">
         <button type="button" class="btn btn-outline-secondary" id="share_button">Share</button>
