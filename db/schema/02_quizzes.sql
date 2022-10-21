@@ -10,4 +10,3 @@ CREATE TABLE quizzes (
   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
   completed_at TIMESTAMP DEFAULT NULL
 );
-
