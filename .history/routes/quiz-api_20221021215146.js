@@ -20,6 +20,11 @@ router.get('/', (req, res) => {
     });
 });
 
+// Get quiz id from title
+// router.get("/title", (req, res) => {
+//   quiz.getQuizIdByTitle()
+// })
+
 /*
 Post for creating a new quiz
 */
@@ -92,11 +97,11 @@ router.post('/', (req, res) => {
 
       const optionsData = createOptionsData(data, quizData);
       console.log("options data to be save", optionsData);
-      if (optionsData.length > 0) {
-        return quiz.postOptions(optionsData);
-      } else {
+      if (optionsData.length>0) {
+      return quiz.postOptions(optionsData);
+      }else {
         new Promise((resolve, reject) => {
-          resolve("");
+          resolve "";
         });
       }
     })

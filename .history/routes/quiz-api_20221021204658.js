@@ -20,6 +20,11 @@ router.get('/', (req, res) => {
     });
 });
 
+// Get quiz id from title
+// router.get("/title", (req, res) => {
+//   quiz.getQuizIdByTitle()
+// })
+
 /*
 Post for creating a new quiz
 */
@@ -41,21 +46,8 @@ const createOptionsData = (questionsArr, quizObj) => {
   for (let x = 0; x < questionsArr.length; x++) {
     const optionObj = {};
     optionObj.questionId = questionsArr[x].id;
-    if (!quizObj["options" + x]) {
-      console.log("no options")
-      optionObj.options = []
-    } else {
-      console.log("with options", quizObj["options" + x])
-
-
-      optionObj.options = quizObj["options" + x]
-    }
-    //optionObj.options = !quizObj["options" + x] ? [] : quizObj["options" + x];
-
-    //options is not empty
-    if (optionObj.options.length > 0) {
-      optionsArr.push(optionObj);
-    }
+    optionObj.options = !quizObj["options" + x] ? [] : quizObj["options" + x];
+    optionsArr.push(optionObj);
   }
   return optionsArr;
 }
@@ -78,45 +70,30 @@ router.post('/', (req, res) => {
 
   console.log("quiz obj", quizData);
 
-
+  
   quiz.postQuizzes(quizData)
     .then(data => {
-      console.log("Quiz save returned obj: ", data);
       returnData = data;
       const questionsArr = createQuestionsData(data.id, quizData.questions, quizData.questions_type);
       return quiz.postQuestions(questionsArr);
     })
     .then(data => {
-      console.log("Questions save returned obj: ", data);
       saveQuestions = data;
-
       const optionsData = createOptionsData(data, quizData);
-      console.log("options data to be save", optionsData);
-      if (optionsData.length > 0) {
-        return quiz.postOptions(optionsData);
-      } else {
-        new Promise((resolve, reject) => {
-          resolve("");
-        });
-      }
+      return quiz.postOptions(optionsData);
     })
     .then(() => {
-      console.log("options save returned obj: ");
       const answersData = createAnswersData(saveQuestions, quizData);
       return quiz.postAnswers(answersData);
     })
     .then(() => {
-      console.log("answers save returned obj: ", returnData);
       return res.json(returnData);
     })
-    .catch(err => {
-      console.log("Error saving new quiz", err);
-      return res.status(500).json({ error: err.message })
-    });
+    .catch(err => res.status(500).json({ error: err.message }));
 
 })
 
-router.post('/temp', (req, res) => {
+router.post('/temp',(req,res)=>{
   const quizData = req.body;
   console.log("quiz obj", quizData);
   res.send("saved");

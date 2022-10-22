@@ -20,6 +20,11 @@ router.get('/', (req, res) => {
     });
 });
 
+// Get quiz id from title
+// router.get("/title", (req, res) => {
+//   quiz.getQuizIdByTitle()
+// })
+
 /*
 Post for creating a new quiz
 */
