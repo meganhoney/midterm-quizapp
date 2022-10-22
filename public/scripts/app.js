@@ -62,19 +62,16 @@ $(document).ready(function () {
 
     const $quiz = $("#quiz-tbody");
     for (let key of Object.keys(quizzes)) {
-      //console.log(quizzes[key]);
       $(createQuizRow(quizzes[key])).appendTo($quiz);
 
 
       const id = `${quizzes[key].id}`;
-      //console.log(id);
       const $shareButton = $('#share' + id);
       $shareButton.click((event) => {
         event.preventDefault();
         let hrefValue = $shareButton.attr('href');//get the href property of the current clicked element
         // Copy the text inside the text field
         navigator.clipboard.writeText(hrefValue);
-        //console.log('hrefValue : ' + hrefValue);
         alert("Link copied: " + hrefValue);
       });
 

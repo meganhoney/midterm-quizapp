@@ -37,7 +37,6 @@ router.get('/my_quizzes/new', (req, res) => {
 
 //All quizzes created by the user with all people attempted
 router.get('/my_quizzes/:id', (req, res) => {
-  console.log('im here')
   res.render('quiz_all_results');
 });
 
@@ -51,7 +50,6 @@ router.post('/score', (req, res) => {
 
   quiz.getQuizzesWithQuestionsOptionsAnswersById(quizId)
     .then((quizData) => {
-      console.log(quizData);
       quizObj = quizData;
       const result = helper.validateAnswers(quizObj, attemptedAnswers);
       result.quizId = quizId;
