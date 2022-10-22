@@ -79,7 +79,7 @@ const quizCreatedSuccess = function(id) {
   <div class="input-group share d-flex">
     <input type="text" class="form-control" value='http://localhost:8080/${id}' id="shareNewQuiz">
       <div class="input-group-append">
-        <button type="button" class="btn btn-outline-secondary share-button" id="shareQuizUrl">Share</button>
+        <button type="button" class="btn btn-outline-secondary " id="shareQuizUrl">Share</button>
       </div>
     </div>
   </div>

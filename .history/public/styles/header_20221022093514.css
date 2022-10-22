@@ -1,0 +1,15 @@
+.navbar i {
+  padding: 2px;
+}
+
+.navbar.navbar a.nav-link {
+  color: #E2E2E2;
+}
+
+.navbar.navbar a.nav-link:hover {
+  color: #FF4D00;
+}
+
+.logo{
+
+}

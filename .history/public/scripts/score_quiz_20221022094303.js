@@ -44,7 +44,7 @@ $(document).ready(function () {
     <div class="input-group share">
       <input type="text" class="form-control" value='http://localhost:8080/attempted/${id}' id="myInput">
       <div class="input-group-append">
-        <button type="button" class="btn btn-outline-secondary share-button" id="share_button">Share</button>
+        <button type="button" class="btn btn-outline-secondary s" id="share_button">Share</button>
       </div>
     </div>
     `;
