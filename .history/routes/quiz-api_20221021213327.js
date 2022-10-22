@@ -20,6 +20,11 @@ router.get('/', (req, res) => {
     });
 });
 
+// Get quiz id from title
+// router.get("/title", (req, res) => {
+//   quiz.getQuizIdByTitle()
+// })
+
 /*
 Post for creating a new quiz
 */
@@ -51,11 +56,7 @@ const createOptionsData = (questionsArr, quizObj) => {
       optionObj.options = quizObj["options" + x]
     }
     //optionObj.options = !quizObj["options" + x] ? [] : quizObj["options" + x];
-
-    //options is not empty
-    if (optionObj.options.length > 0) {
-      optionsArr.push(optionObj);
-    }
+    optionsArr.push(optionObj);
   }
   return optionsArr;
 }
@@ -91,22 +92,15 @@ router.post('/', (req, res) => {
       saveQuestions = data;
 
       const optionsData = createOptionsData(data, quizData);
-      console.log("options data to be save", optionsData);
-      if (optionsData.length > 0) {
-        return quiz.postOptions(optionsData);
-      } else {
-        new Promise((resolve, reject) => {
-          resolve("");
-        });
-      }
+      return quiz.postOptions(optionsData);
     })
     .then(() => {
-      console.log("options save returned obj: ");
+      console.log("options save returned obj: ", data]);
       const answersData = createAnswersData(saveQuestions, quizData);
       return quiz.postAnswers(answersData);
     })
     .then(() => {
-      console.log("answers save returned obj: ", returnData);
+      console.log("answers save returned obj: ", data);
       return res.json(returnData);
     })
     .catch(err => {
