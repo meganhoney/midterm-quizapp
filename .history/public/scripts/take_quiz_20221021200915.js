@@ -49,7 +49,7 @@ $(document).ready(function () {
   const displayQuizOptions = function (quiz) {
     const $quizQuestions = quiz.questions;
     for (let q of $quizQuestions) {
-      if (q.question_type.toLowerCase().trim() === 'fill in the blank') {
+      if (q.question_type.toLowerCase() === 'fill in the blank') {
         let $quizBlank = `
         <div class="form-group">
         <label for="blank-question${q.id}" class="form-label">Fill in the blank:</label>
@@ -62,7 +62,7 @@ $(document).ready(function () {
       const options = q.options;
       for (let o of options) {
 
-        if (q.question_type.toLowerCase().trim() === 'multiple choice') {
+        if (q.question_type.toLowerCase === 'Multiple Choice') {
           let $quizOption = `
             <div class="form-check">
               <input class="form-check-input" type="radio" id="option${o.id}" name="${q.id}" value="${o.option}">
@@ -73,7 +73,7 @@ $(document).ready(function () {
           `;
           const $quizOptions = $(`#question${q.id}`);
           $($quizOption).appendTo($quizOptions);
-        }else if (q.question_type.toLowerCase().trim() === 'multiple answers') {
+        }else if (q.question_type === 'Multiple Answers') {
           let $quizOption = `
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="option${o.id}" name="${q.id}" value="${o.option}">

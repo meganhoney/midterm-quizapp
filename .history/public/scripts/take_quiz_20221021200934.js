@@ -73,7 +73,7 @@ $(document).ready(function () {
           `;
           const $quizOptions = $(`#question${q.id}`);
           $($quizOption).appendTo($quizOptions);
-        }else if (q.question_type.toLowerCase().trim() === 'multiple answers') {
+        }else if (q.question_type === 'Multiple Answers') {
           let $quizOption = `
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="option${o.id}" name="${q.id}" value="${o.option}">
