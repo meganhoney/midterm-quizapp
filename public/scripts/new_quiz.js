@@ -116,6 +116,7 @@ $(document).ready(function() {
       })
       .then((response) => {
         $(".container").html(quizCreatedSuccess(response.id));
+        shareNewQuiz(response.id);
       })
       .catch((err) => {
         console.log('Err: ', err);

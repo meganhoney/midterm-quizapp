@@ -77,13 +77,23 @@ const quizCreatedSuccess = function(id) {
   <div class="success-message p-3 d-flex flex-column align-items-center">
   <h2>Quiz Created Successfully!</h2>
   <div class="input-group share d-flex">
-    <input type="text" class="form-control" value='http://localhost:8080/${id}' id="share">
+    <input type="text" class="form-control" value='http://localhost:8080/${id}' id="shareNewQuiz">
       <div class="input-group-append">
-        <button type="button" class="btn btn-outline-secondary" id="share_button">Share</button>
+        <button type="button" class="btn btn-outline-secondary" id="shareQuizUrl">Share</button>
       </div>
     </div>
   </div>
   `;
   return quizSuccessMessage;
 };
+
+const shareNewQuiz = function(id) {
+  $("#shareQuizUrl").click(() => {
+    const $temp = $("#shareNewQuiz");
+    $temp.select();
+    document.execCommand("copy");
+    alert(`Copied URL: http://localhost:8080/${id}
+    `);
+  });
+}
 
