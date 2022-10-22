@@ -22,6 +22,25 @@ footer span {
   bottom: 0;
 }
 
+.share-button {
+  border: 2px solid $accent-orange;
+  background: #fff;
+}
+
+.share-button:hover {
+  color: $accent-orange;
+  border: 2px solid #fff;
+}
+
+td a {
+  color: #000;
+  border-bottom: 2px solid $accent-orange;
+}
+
+td a:hover {
+  text-decoration: none;
+  color: $accent-orange;
+}
 
 
 

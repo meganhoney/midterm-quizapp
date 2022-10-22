@@ -48,12 +48,12 @@ const generateMultipleChoiceInput = function(id) {
 // generate html markup for fill in the blank question creation
 const generateFillInTheBlankInput = function(id) {
   const $fillInTheBlank = `
-  <div class="d-flex mb-3">
+  <div class="d-flex mb-4">
           <label for="q${id}-text" class="form-label">Question:</label>
           <input type="text" class="form-control ml-2 question-text" id="q${id}-text" placeholder="Type question text here then use button to insert blank space">
           <button type="button" class="btn btn-sm btn-outline-dark text-nowrap insert-blank">Insert blank space</button>
         </div>
-        <div class="d-flex mb-3">
+        <div class="d-flex mb-4">
           <label for="q${id}-answer" class="form-label">Answer:</label>
           <input type="text" class="form-control ml-2" id="q${id}-answer" name="answers${id-1}" placeholder="Type the word that fills in the blank">
       </div>

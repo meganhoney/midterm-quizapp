@@ -47,7 +47,7 @@ $(document).ready(function () {
     let $quiz = `
       <tr>
         <td>${quiz.id}</td>
-        <td><a href="/${quiz.id}">${quiz.title}</a></td>
+        <td class="quiz-title"><a href="/${quiz.id}">${quiz.title}</a></td>
         <td>${quiz.topic}</td>
         <td>${dateString}</td>
         <td><a href="http://localhost:8080/${quiz.id}" class="btn share-button" id="share${quiz.id}" role="button">Share</a></td>
