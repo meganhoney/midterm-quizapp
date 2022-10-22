@@ -58,10 +58,7 @@ $(document).ready(function () {
   };
 
 
-
   const displayAllQuizzes = function (quizzes) {
-
-
 
     const $quiz = $("#quiz-tbody");
     for (let key of Object.keys(quizzes)) {
@@ -121,8 +118,6 @@ $(document).ready(function () {
       $(createMyQuizRow(myQuizzes[key])).appendTo($quiz);
     }
   };
-
-
 
 
   /*
