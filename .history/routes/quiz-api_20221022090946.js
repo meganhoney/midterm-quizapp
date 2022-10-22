@@ -73,11 +73,11 @@ const createAnswersData = (questionsArr, quizObj) => {
 
 router.post('/', (req, res) => {
   const userId = req.session.userID;
+
   const quizData = req.body;
   let saveQuestions;
   let returnData;
 
-  quizData.user_id = userId;
   console.log("quiz obj", quizData);
 
 

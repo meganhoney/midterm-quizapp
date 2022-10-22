@@ -20,6 +20,11 @@ router.get('/', (req, res) => {
     });
 });
 
+// Get quiz id from title
+// router.get("/title", (req, res) => {
+//   quiz.getQuizIdByTitle()
+// })
+
 /*
 Post for creating a new quiz
 */
@@ -72,12 +77,10 @@ const createAnswersData = (questionsArr, quizObj) => {
 }
 
 router.post('/', (req, res) => {
-  const userId = req.session.userID;
   const quizData = req.body;
   let saveQuestions;
   let returnData;
 
-  quizData.user_id = userId;
   console.log("quiz obj", quizData);
 
 
@@ -103,7 +106,7 @@ router.post('/', (req, res) => {
       }
     })
     .then(() => {
-      console.log("options save returned obj: ");
+      console.log("options saved returned obj: ");
       const answersData = createAnswersData(saveQuestions, quizData);
       return quiz.postAnswers(answersData);
     })

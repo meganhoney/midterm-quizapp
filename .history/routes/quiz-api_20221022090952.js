@@ -77,7 +77,6 @@ router.post('/', (req, res) => {
   let saveQuestions;
   let returnData;
 
-  quizData.user_id = userId;
   console.log("quiz obj", quizData);
 
 
