@@ -139,7 +139,7 @@ $(document).ready(function () {
     const dateString = theDate.toGMTString();
     let $result = `
       <tr>
-        <td><a href="/${result.quiz_id}">${result.quiz}</a></td>
+        <td><a href="/${quiz_id}`>${result.quiz}</a></td>
         <td>${dateString}</td>
         <td><a href="/attempted/${result.id}">${result.score}%</a></td>
       </tr>
