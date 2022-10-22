@@ -40,7 +40,7 @@ const generateMultipleChoiceInput = function(id) {
     </div>
     <div class="d-flex mb-3 mt-3">
         <label for="q${id}-answer" class="form-label">Answer:</label>
-        <input type="text" class="form-control ml-2" id="q${id}-answer" name="answer${id - 1}" placeholder="Type the correct answer">
+        <input type="text" class="form-control ml-2" id="q${id}-answer" name="answers${id - 1}" placeholder="Type the correct answer">
     </div>
   `
   return $multipleChoice;
@@ -72,14 +72,18 @@ const getAllOptions = function(id){
   return options;
 };
 
-// const getQuizURL = function () {
-//   $.ajax(`/api/quizzes/`, {
-//     method: "GET"
-//   })
-//     .then((response) => {
+const quizCreatedSuccess = function(id) {
+  let quizSuccessMessage = `
+  <div class="success-message p-3 d-flex flex-column align-items-center">
+  <h2>Quiz Created Successfully!</h2>
+  <div class="input-group share d-flex">
+    <input type="text" class="form-control" value='http://localhost:8080/${id}' id="share">
+      <div class="input-group-append">
+        <button type="button" class="btn btn-outline-secondary" id="share_button">Share</button>
+      </div>
+    </div>
+  </div>
+  `;
+  return quizSuccessMessage;
+};
 
-//     })
-//     .catch((err) => {
-//       console.log("Error: ", err);
-//     })
-//   };

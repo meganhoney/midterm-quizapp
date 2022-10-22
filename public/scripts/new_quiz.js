@@ -107,25 +107,24 @@ $(document).ready(function() {
 
     console.log(formData);
 
-    // check form has title, topic, at least one question and one answer
-    if(formData.title) {
-      console.log('success');
-      $("main").html("<p>Done</p>");
+    //check form has title, topic, at least one question and one answer
+    if(formData.title && formData.topic && formData["questions"].length && formData["answers0"].length) {
       $.ajax({
         type: "POST",
         url: "/api/quizzes",
         data: formData,
       })
-      .then(() => {
-        $("main").html("<p>Quiz Completed</p>");
+      .then((response) => {
+        $(".container").html(quizCreatedSuccess(response.id));
       })
       .catch((err) => {
         console.log('Err: ', err);
+        alert('Please fill out all fields');
       })
-    } else {
+    } else{
       alert('Please fill out all fields');
-    }
+    };
 
-    });
+     });
 
 });
