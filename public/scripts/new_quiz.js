@@ -1,4 +1,24 @@
 $(document).ready(function() {
+  // Also in app.js
+  const displayUser = function () {
+    $.ajax("/api/users/user", {
+      method: "GET"
+    })
+      .then((response) => {
+        const username = `
+      <a class="nav-item nav-link" href="#">
+      ${response.user[0].name}
+      </a>
+      `;
+        const $user = $("#user");
+        $(username).prependTo($user);
+      })
+      .catch((err) => {
+        console.log("Error: ", err);
+      });
+  }
+  displayUser();
+
 // create form submission object
   const formData = {
     user_id: 1,
