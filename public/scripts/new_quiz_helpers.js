@@ -55,7 +55,7 @@ const generateFillInTheBlankInput = function(id) {
         </div>
         <div class="d-flex mb-3">
           <label for="q${id}-answer" class="form-label">Answer:</label>
-          <input type="text" class="form-control ml-2" id="q${id}-answer" name="answer${id-1}" placeholder="Type the word that fills in the blank">
+          <input type="text" class="form-control ml-2" id="q${id}-answer" name="answers${id-1}" placeholder="Type the word that fills in the blank">
       </div>
   `;
 
