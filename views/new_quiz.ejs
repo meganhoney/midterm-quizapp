@@ -21,7 +21,7 @@
 
   <!-- Scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
+
   <script defer src="/scripts/new_quiz_helpers.js"></script>
   <script defer src="/scripts/new_quiz.js"></script>
 </head>
@@ -31,37 +31,33 @@
   <main>
     <section class="container new-quiz">
       <h2>Create Quiz</h2>
-      <form action="/" method="POST"id="new-quiz-form">
+      <form action="/" method="POST" id="new-quiz-form">
         <div class="d-flex mb-3">
           <label for="quiz-title" class="form-label">Title:</label>
           <input type="text" class="form-control ml-2" id="quiz-title" placeholder="What would you like to call your quiz?">
         </div>
         <div class="d-flex mb-3">
-          <label for="quiz-description" class="form-label">Description:</label>
-          <input type="text" class="form-control ml-2" id="quiz-description" placeholder="Write a brief description of your quiz.">
-        </div>
-        <div class="d-flex mb-3">
           <label for="quiz-topic" class="form-label">Topic:</label>
           <select class="form-select ml-2" id="quiz-topic">
             <option selected>Pick a topic</option>
-            <option value="general">General Trivia</option>
-            <option value="food">Food & Drink</option>
-            <option value="geo">Geography</option>
-            <option value="lit">Literature</option>
-            <option value="ent">Entertainment</option>
-            <option value="pop">Pop Culture</option>
-            <option value="sport">Sports</option>
-            <option value="sci">Science & Technology</option>
+            <option value="General Trivia">General Trivia</option>
+            <option value="Food & Drink">Food & Drink</option>
+            <option value="Geography">Geography</option>
+            <option value="Literature">Literature</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Pop Culture">Pop Culture</option>
+            <option value="Sports">Sports</option>
+            <option value="Science & Technology">Science & Technology</option>
           </select>
         </div>
         <div class="form-check form-switch mb-3">
-          <input class="form-check-input" type="checkbox" role="switch" id="quiz-private">
-          <label class="form-check-label" for="quiz-public">Private (Private quizzes are only visible to the creator & those with a link)</label>
+          <input class="form-check-input" type="checkbox" role="switch" id="quiz-private" value="false">
+          <label class="form-check-label" for="quiz-private">Private (Private quizzes are only visible to the creator & those with a link)</label>
         </div>
-      <div class="create-questions">
+      <div class="create-questions-all">
         <div class="d-flex mb-3">
           <label for="question-1" class="form-label">Question 1</label>
-          <select class="form-select ml-2 create-question" id="question-1">
+          <select class="create-question form-select ml-2" id="question-1">
             <option>Question Type</option>
             <option value="1">Multiple Choice</option>
             <option value="2">Fill in the blank</option>
@@ -70,77 +66,12 @@
         <div id="question-input-1" class="mb-3 question-input">
           <!-- question text and answer inputs added via jQuery in new_quiz.js -->
         </div>
-        <div class="d-flex mb-3">
-          <label for="question-2" class="form-label">Question 2</label>
-          <select class="form-select ml-2 create-question" id="question-2">
-            <option>Question Type</option>
-            <option value="1">Multiple Choice</option>
-            <option value="2">Fill in the blank</option>
-          </select>
-        </div>
-        <div id="question-input-2" class="mb-3 question-input">
-          <!-- question text and answer inputs added via jQuery in new_quiz.js -->
-        </div>
-        <div class="d-flex mb-3">
-          <label for="question-3" class="form-label">Question 3</label>
-          <select class="form-select ml-2 create-question" id="question-3">
-            <option selected>Question Type</option>
-            <option value="1">Multiple Choice</option>
-            <option value="2">Fill in the blank</option>
-          </select>
-        </div>
-        <div id="question-input-3" class="mb-3 question-input">
-          <!-- question text and answer inputs added via jQuery in new_quiz.js -->
-        </div>
         <button type="button" class="btn btn-dark" id="add-question">+ Add a question</button>
       </div> <!-- End of create questions div -->
-        <div class="d-flex justify-content-center">
-          <button type="submit" class="btn btn-dark btn-lg">Submit Quiz</button>
-        </div>
 
-        <!--
-          <label for="quiz-question-text" class="form-label">Question:</label>
-          <input type="text" class="form-control mb-2" id="quiz-question-text" placeholder="Please type your question">
-          <div class="d=flex">
-            <div class="input-group mb-3">
-              <fieldset class="d-flex">
-                <legend>Answers:</legend>
-                  <input type="text" class="form-control" aria-label="Text input with checkbox">
-                  <div class="input-group-text">
-                    <input class="form-check-input" type="checkbox" value="option-1" id="correct-1" aria-label="Checkbox to indicate correct answer">
-                    <label for="correct-1">is correct</label>
-                  </div>
-                  <input type="text" class="form-control" aria-label="Text input with checkbox">
-                  <div class="input-group-text">
-                    <input class="form-check-input" type="checkbox" value="option-2" id="correct-2" aria-label="Checkbox to indicate correct answer">
-                    <label for="correct-2">is correct</label>
-                  </div>
-                  <input type="text" class="form-control" aria-label="Text input with checkbox">
-                  <div class="input-group-text">
-                    <input class="form-check-input" type="checkbox" value="option-3" id="correct-3" aria-label="Checkbox to indicate correct answer">
-                    <label for="correct-3">is correct</label>
-                  </div>
-                  <input type="text" class="form-control" aria-label="Text input with checkbox">
-                  <div class="input-group-text">
-                    <input class="form-check-input" type="checkbox" value="option-4" id="correct-4" aria-label="Checkbox to indicate correct answer">
-                    <label for="correct-4">is correct</label>
-                  </div>
-            </fieldset>
-            </div>
-          </div>
--->
-
-<!--
-        <div class="d-flex mb-3">
-          <label for="qID-text" class="form-label">Question:</label>
-          <input type="text" class="form-control ml-2" id="qID-text" placeholder="Type question text here then use button to insert blank space">
-          <button type="button" class="btn btn-sm btn-outline-dark text-nowrap insert-blank">Insert blank space</button>
-        </div>
-        <div class="d-flex mb-3">
-          <label for="qID-answer" class="form-label">Answer:</label>
-          <input type="text" class="form-control ml-2" id="QUESTIONB" placeholder="Type the word that fills in the blank">
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-dark btn-lg">Submit Quiz</button>
       </div>
-    -->
 
       </form>
     </section>

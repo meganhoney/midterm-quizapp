@@ -8,6 +8,18 @@ const getQuizzes = () => {
     });
 };
 
+const getQuizIdByTitle = (title) => {
+  return db.query(`
+    SELECT id FROM quizzes
+    WHERE title = '$1'
+  `, [title])
+  .then((data => {
+    return data.rows;
+  }))
+  .catch((err) => {
+    console.log(err.message);
+  });
+};
 const getQuizzesByUserId = (userId) => {
   return db.query(`
   SELECT
