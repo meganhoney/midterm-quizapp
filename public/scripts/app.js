@@ -62,19 +62,19 @@ $(document).ready(function () {
 
     const $quiz = $("#quiz-tbody");
     for (let key of Object.keys(quizzes)) {
-      console.log(quizzes[key]);
+      //console.log(quizzes[key]);
       $(createQuizRow(quizzes[key])).appendTo($quiz);
 
 
       const id = `${quizzes[key].id}`;
-      console.log(id);
+      //console.log(id);
       const $shareButton = $('#share' + id);
       $shareButton.click((event) => {
         event.preventDefault();
         let hrefValue = $shareButton.attr('href');//get the href property of the current clicked element
         // Copy the text inside the text field
         navigator.clipboard.writeText(hrefValue);
-        console.log('hrefValue : ' + hrefValue);
+        //console.log('hrefValue : ' + hrefValue);
         alert("Link copied: " + hrefValue);
       });
 
@@ -128,6 +128,7 @@ $(document).ready(function () {
       method: "GET"
     })
       .then((response) => {
+        console.log(response);
         displayMyResults(response);
       })
       .catch((err) => {
@@ -144,16 +145,17 @@ $(document).ready(function () {
       <tr>
         <td>${result.quiz}</td>
         <td>${dateString}</td>
-        <td><a href="/attempted/${result.quiz_id}">${result.score}%</a></td>
+        <td><a href="/attempted/${result.id}">${result.score}%</a></td>
       </tr>
     `;
     return $result;
   };
 
-  const displayMyResults = function (myQuizzes) {
+  const displayMyResults = function (myResults) {
+    console.log(myResults);
     const $results = $("#my-results-table");
-    for (let key of Object.keys(myQuizzes)) {
-      $(createMyResultRow(myQuizzes[key])).appendTo($results);
+    for (let key of Object.keys(myResults)) {
+      $(createMyResultRow(myResults[key])).appendTo($results);
     }
   };
 });

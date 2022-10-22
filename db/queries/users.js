@@ -33,10 +33,12 @@ const getQuizzesByUserId = (user_id) => {
 
 const getResultsByUserId = (user_id) => {
   return db.query(`
-  SELECT quizzes.title as quiz, results.created_at, results.score, results.quiz_id
+  SELECT quizzes.title as quiz, results.created_at, results.score, results.id, results.quiz_id
   FROM results
-  JOIN quizzes ON quizzes.id = quiz_id WHERE results.user_id = $1;
-  `, [user_id])
+  JOIN quizzes ON quizzes.id = quiz_id WHERE results.user_id = $1
+  ORDER BY created_at DESC
+  LIMIT $2;
+  `, [user_id, 10])
   .then((data => {
     return data.rows;
   }))
