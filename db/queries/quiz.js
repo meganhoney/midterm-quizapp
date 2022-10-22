@@ -51,21 +51,20 @@ const getQuizzesByUserId = (userId) => {
 const getQuizOnlyById = (quizId) => {
   return db.query(`
   SELECT
-    quizzes.id,
-    quizzes.user_id,
-    quizzes.title,
-    quizzes.topic,
-    quizzes.public,
-    quizzes.created_at,
-    COUNT (results) AS number_of_attempts
-  FROM
-    quizzes
-    JOIN results ON quizzes.id = results.quiz_id
-  WHERE
-    quizzes.id = $1
-    AND quizzes.completed_at IS NULL
-  GROUP BY
-    quizzes.id;
+  quizzes.id,
+  quizzes.user_id,
+  quizzes.title,
+  quizzes.topic,
+  quizzes.public,
+  to_char(quizzes.created_at,'Day MM/DD/YYYY HH:MM PM') As created_at,
+  quizzes.number_of_attempts,
+  users.name
+FROM
+  quizzes
+  JOIN users ON quizzes.user_id = users.id
+WHERE
+  quizzes.id = $1
+  AND quizzes.completed_at IS NULL;
 
 
 `, [quizId])
@@ -333,16 +332,39 @@ Get result by id
 const getResultsByQuizId = (quizId) => {
   return db.query(`
   SELECT
-    *
-  FROM
-    results
-  WHERE
-    quiz_id = $1
-  ORDER BY
-    created_at DESC;
+  results.id,
+  results.user_id,
+  results.quiz_id,
+  to_char(results.created_at, 'MM/DD/YYYY HH:MM PM') As created_at,
+  results.score,
+  results.correct_answers,
+  results.total_questions,
+  users.name
+FROM
+  results
+  JOIN users ON results.user_id = users.id
+WHERE
+  results.quiz_id = $1
+ORDER BY
+  created_at DESC;
 
   `, [quizId])
     .then(data => data.rows);
+}
+
+
+const updateNumberOfAttemptsById = (quizId) => {
+  return db.query(`
+  UPDATE
+  quizzes
+SET
+  number_of_attempts = number_of_attempts + 1
+WHERE
+  id = $1 RETURNING *;
+
+  `, [quizId])
+    .then(data => data.rows[0]);
+
 }
 
 const attachOptions = async (questions) => {
@@ -413,5 +435,6 @@ module.exports = {
   getResultsByUserId,
   getResultsByResultId,
   getResultsByQuizId,
-  getQuizzesWithQuestionsOptionsAnswersById
+  getQuizzesWithQuestionsOptionsAnswersById,
+  updateNumberOfAttemptsById
 };
