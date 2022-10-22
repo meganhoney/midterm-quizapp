@@ -39,8 +39,6 @@ router.get('/:id', (req, res) => {
 API POST when submitting an attempted quiz
 */
 
-
-
 router.post('/', (req, res) => {
   const attemptedAnswers = req.body;
   const quizId = attemptedAnswers.quiz_id;

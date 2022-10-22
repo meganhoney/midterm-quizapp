@@ -59,9 +59,9 @@ $(document).ready(function () {
 
 
     <div class="input-group">
-      <input type="text" class="form-control" value='http://localhost:8080/my_quizzes/${id}' id="myInput">
+      <input type="text" class="form-control" value='http://localhost:8080/my_quizzes/${id}' id="allResults">
       <div class="input-group-append">
-        <button type="button" class="btn btn-outline-secondary" id="share_button">Share</button>
+        <button type="button" class="btn btn-outline-secondary" id="shareAllResults">Share</button>
       </div>
     </div>
 
@@ -96,11 +96,11 @@ $(document).ready(function () {
     $rows.append(html);
 
 
-    $("#share_button").click(() => {
-      const $temp = $("#myInput");
+    $("#shareAllResults").click(() => {
+      const $temp = $("#shareResults");
       $temp.select();
       document.execCommand("copy");
-      alert(`Copied URL: http://localhost:8080/attempted/${id}
+      alert(`Copied URL: http://localhost:8080/my_quizzes/${id}
       `);
     });
   }
