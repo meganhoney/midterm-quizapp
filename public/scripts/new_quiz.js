@@ -19,8 +19,6 @@ $(document).ready(function() {
     }
   });
 
-
-
   const createQuestionInputs = function() {
     $(".create-question").change(function() {
     const $id = this.id.split("-").pop();
@@ -81,19 +79,33 @@ $(document).ready(function() {
     });
     formData.questions = questionsArray;
 
-    //get all answers
+    // get all answers
     const fillInTheBlankAnswers = $(this).serializeArray();
     for(obj of fillInTheBlankAnswers) {
       formData[obj.name] = [obj.value];
     }
+
     console.log(formData);
 
-    $.ajax({
-      type: "POST",
-      url: "http://localhost:8080/api/quizzes",
-      data: formData,
-    }).done(function (data) {
-      console.log(data);
+    // check form has title, topic, at least one question and one answer
+    if(formData.title) {
+      console.log('success');
+      $("main").html("<p>Done</p>");
+      $.ajax({
+        type: "POST",
+        url: "/api/quizzes",
+        data: formData,
+      })
+      .then(() => {
+        $("main").html("<p>Quiz Completed</p>");
+      })
+      .catch((err) => {
+        console.log('Err: ', err);
+      })
+    } else {
+      alert('Please fill out all fields');
+    }
+
     });
-  });
+
 });

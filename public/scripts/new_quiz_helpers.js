@@ -71,3 +71,15 @@ const getAllOptions = function(id){
 
   return options;
 };
+
+// const getQuizURL = function () {
+//   $.ajax(`/api/quizzes/`, {
+//     method: "GET"
+//   })
+//     .then((response) => {
+
+//     })
+//     .catch((err) => {
+//       console.log("Error: ", err);
+//     })
+//   };
