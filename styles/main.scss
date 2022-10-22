@@ -1,6 +1,19 @@
-main {
+$light-grey: #F0F0F0;
+$accent-orange: #FF4D00;
+$logo-font: 'Creepster', cursive;
+$main-font: 'Jost', sans-serif;
+$main-font-bold: 'Jost', sans-serif;
+$background-img-path: "../images";
+
+body {
   min-height: 100vh;
-  background: #e2e2e2;
+  font-family: $main-font;
+  font-size: 20px;
+  background: url(#{$background-img-path}/background-texture.png);
+}
+
+main {
+  background: $light-grey;
 }
 
 
