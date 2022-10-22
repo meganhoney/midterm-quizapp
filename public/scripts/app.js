@@ -128,7 +128,6 @@ $(document).ready(function () {
       method: "GET"
     })
       .then((response) => {
-        console.log(response);
         displayMyResults(response);
       })
       .catch((err) => {
@@ -152,7 +151,6 @@ $(document).ready(function () {
   };
 
   const displayMyResults = function (myResults) {
-    console.log(myResults);
     const $results = $("#my-results-table");
     for (let key of Object.keys(myResults)) {
       $(createMyResultRow(myResults[key])).appendTo($results);

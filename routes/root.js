@@ -47,9 +47,11 @@ router.post('/score', (req, res) => {
   const quizId = attemptedAnswers.quiz_id;
   const userId = req.session.userID;
   let quizObj;
+  let quizResult;
 
   quiz.getQuizzesWithQuestionsOptionsAnswersById(quizId)
     .then((quizData) => {
+      console.log(quizData);
       quizObj = quizData;
       const result = helper.validateAnswers(quizObj, attemptedAnswers);
       result.quizId = quizId;
@@ -57,11 +59,12 @@ router.post('/score', (req, res) => {
       return quiz.postResults(result);
     })
     .then((result) => {
+      quizResult = result.id;
       quizObj = result;
       return quiz.updateNumberOfAttemptsById(quizId);
     })
     .then(() => {
-      res.redirect("/attempted/" + quizId);
+      res.redirect("/attempted/" + quizResult);
     })
 
 })
