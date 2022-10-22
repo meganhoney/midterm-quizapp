@@ -3,7 +3,14 @@
 SpoOkle is a quiz app where users can take publically available quizzes and share their results with friends. Users can create quizzes, for public or private use, and share with friends. Users can also keep track of quizzes they have created to see how other users do with their questions.
 
 ## Features
-
+!["Homepage view with all public quizzes"](https://github.com/meganhoney/midterm-quizapp/blob/master/docs/spookle_homepage.png?raw=true)
+!["Take a quiz"](https://github.com/meganhoney/midterm-quizapp/blob/master/docs/spookle_takequiz.png?raw=true)
+!["Completed a quiz"](https://github.com/meganhoney/midterm-quizapp/blob/master/docs/spookle_takequiz_success.png?raw=true)
+!["See all quizzes you have created"](https://github.com/meganhoney/midterm-quizapp/blob/master/docs/spookle_myquizzes.png?raw=true)
+!["See results for quizzes you have taken"](https://github.com/meganhoney/midterm-quizapp/blob/master/docs/spookle_myresults.png?raw=true)
+!["Create a quiz"](https://github.com/meganhoney/midterm-quizapp/blob/master/docs/spookle_createquiz.png?raw=true)
+!["Share quiz you created"](https://github.com/meganhoney/midterm-quizapp/blob/master/docs/spookle_createquiz_success.png?raw=true)
+!["Track other users' results on your quizzes"](https://github.com/meganhoney/midterm-quizapp/blob/master/docs/spookle_allresults.png?raw=true)
 
 
 ## Getting Started
